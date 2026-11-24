@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it and the original data sources.
+title: Automatic masking of cartridge-case head scans (TypeScript implementation)
+type: software
+authors:
+  - family-names: Ostrovskii
+    given-names: Rodion
+references:
+  - type: data
+    title: NIST Ballistics Toolmark Research Database
+    doi: 10.18434/M32021
