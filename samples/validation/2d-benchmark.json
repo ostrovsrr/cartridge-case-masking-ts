@@ -1,0 +1,198 @@
+{
+  "brief_development": {
+    "baseline": {
+      "breech_face (red)": 0.4198384706409476,
+      "firing_pin_region (cyan+purple vs ours FPI+drag)": 0.0,
+      "drag_channel (cyan vs ours firing-pin shear)": 0.0,
+      "aperture_shear (green; ours never labelled in 2D)": 0.0
+    },
+    "candidate": {
+      "breech_face (red)": 0.5157228653774937,
+      "firing_pin_region (cyan+purple vs ours FPI+drag)": 0.5659481652553247,
+      "drag_channel (cyan vs ours firing-pin shear)": 0.20346217690301163,
+      "aperture_shear (green; ours never labelled in 2D)": 0.0
+    }
+  },
+  "synthetic_known_geometry": [
+    {
+      "seed": 31,
+      "azimuth": 315,
+      "altitude": 35,
+      "depth_um": 400,
+      "baseline": {
+        "breech_face": 0.7388163546821872,
+        "firing_pin": 0.5484830158250177
+      },
+      "candidate": {
+        "breech_face": 0.7388163546821872,
+        "firing_pin": 0.5484830158250177
+      }
+    },
+    {
+      "seed": 32,
+      "azimuth": 90,
+      "altitude": 35,
+      "depth_um": 400,
+      "baseline": {
+        "breech_face": 0.7362222813338815,
+        "firing_pin": 0.5353443022547227
+      },
+      "candidate": {
+        "breech_face": 0.7362222813338815,
+        "firing_pin": 0.5353443022547227
+      }
+    },
+    {
+      "seed": 33,
+      "azimuth": 0,
+      "altitude": 70,
+      "depth_um": 230,
+      "baseline": {
+        "breech_face": 0.7763668280528894,
+        "firing_pin": 0.5068905924580139
+      },
+      "candidate": {
+        "breech_face": 0.7763668280528894,
+        "firing_pin": 0.5068905924580139
+      }
+    },
+    {
+      "seed": 34,
+      "azimuth": 180,
+      "altitude": 15,
+      "depth_um": 200,
+      "baseline": {
+        "breech_face": 0.7151520427112349,
+        "firing_pin": 0.4130359144856381
+      },
+      "candidate": {
+        "breech_face": 0.7151520427112349,
+        "firing_pin": 0.4130359144856381
+      }
+    },
+    {
+      "seed": 35,
+      "azimuth": 270,
+      "altitude": 35,
+      "depth_um": 100,
+      "baseline": {
+        "breech_face": 0.6397045102795736,
+        "firing_pin": 0.33275220827522084
+      },
+      "candidate": {
+        "breech_face": 0.6397045102795736,
+        "firing_pin": 0.33275220827522084
+      }
+    },
+    {
+      "seed": 36,
+      "azimuth": 45,
+      "altitude": 65,
+      "depth_um": 90,
+      "baseline": {
+        "breech_face": 0.7719474991131607,
+        "firing_pin": 0.47524576308883054
+      },
+      "candidate": {
+        "breech_face": 0.7719474991131607,
+        "firing_pin": 0.47524576308883054
+      }
+    },
+    {
+      "seed": 37,
+      "azimuth": 135,
+      "altitude": 35,
+      "depth_um": 40,
+      "baseline": {
+        "breech_face": 0.6078911767525592,
+        "firing_pin": 0.16961058793586153
+      },
+      "candidate": {
+        "breech_face": 0.6078911767525592,
+        "firing_pin": 0.16961058793586153
+      }
+    },
+    {
+      "seed": 38,
+      "azimuth": 225,
+      "altitude": 60,
+      "depth_um": 180,
+      "baseline": {
+        "breech_face": 0.7225760302736628,
+        "firing_pin": 0.5549124369249036
+      },
+      "candidate": {
+        "breech_face": 0.7225760302736628,
+        "firing_pin": 0.5549124369249036
+      }
+    }
+  ],
+  "real_render_3d_proxy": [
+    {
+      "file": "raw/9mm__E3__G0042_A0005.002_CC01_TF.x3p",
+      "baseline": {
+        "breech_face": 0.7211043849540134,
+        "firing_pin": 0.009314828707176794
+      },
+      "candidate": {
+        "breech_face": 0.7211043849540134,
+        "firing_pin": 0.009314828707176794
+      }
+    },
+    {
+      "file": "raw/9mm__E3__G0257_A0006.001_CC01_TF.x3p",
+      "baseline": {
+        "breech_face": 0.6725540558517442,
+        "firing_pin": 0.2475930449777267
+      },
+      "candidate": {
+        "breech_face": 0.6725540558517442,
+        "firing_pin": 0.2475930449777267
+      }
+    },
+    {
+      "file": "raw/40SW__Lightstone__Lightstone_SW_6-1.x3p",
+      "baseline": {
+        "breech_face": 0.0,
+        "firing_pin": 0.5652855639323839
+      },
+      "candidate": {
+        "breech_face": 0.0,
+        "firing_pin": 0.5652855639323839
+      }
+    },
+    {
+      "file": "raw/9mm__Fadul__Fadul_1-1.x3p",
+      "baseline": {
+        "breech_face": 0.0,
+        "firing_pin": 0.28409233078944074
+      },
+      "candidate": {
+        "breech_face": 0.0,
+        "firing_pin": 0.28409233078944074
+      }
+    },
+    {
+      "file": "glock/9mm__PopStatGlock__AADW896_G17_RP2.x3p",
+      "baseline": {
+        "breech_face": 0.0,
+        "firing_pin": 0.14546605189404213
+      },
+      "candidate": {
+        "breech_face": 0.0,
+        "firing_pin": 0.14546605189404213
+      }
+    },
+    {
+      "file": "glock/9mm__PopStatGlock__CWS111US_G34_RP1.x3p",
+      "baseline": {
+        "breech_face": 0.0,
+        "firing_pin": 0.14301627083581972
+      },
+      "candidate": {
+        "breech_face": 0.0,
+        "firing_pin": 0.14301627083581972
+      }
+    }
+  ]
+}

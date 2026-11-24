@@ -1,0 +1,2982 @@
+[
+  {
+    "file": "data/glock/9mm__PopStatGlock__AADW896_G17_RP2.x3p",
+    "source_sha256": "82d216e0c64402690e01b9e4e4a8b891c825d44ef2483cad3b1b0103319f4cf2",
+    "label_sha256": "07669f41e07b7db7e4b99fc4a6e44f53cb93c0043893894f801e0dd8dd55b3f6",
+    "label_shape": [
+      471,
+      471
+    ],
+    "result": {
+      "name": "9mm__PopStatGlock__AADW896_G17_RP2",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "firing-pin crater partly unmeasured (no data); outline from data gap",
+        "rectangular aperture: 1.37 mm slot at 2 deg",
+        "no aperture shear found",
+        "Only 1% of the impression has measured height. Review crater geometry.",
+        "Impression agrees with the circular model at IoU 0.76. Review the aperture and drag boundaries."
+      ],
+      "primer_center_px": [
+        231.8532,
+        237.6984
+      ],
+      "primer_radius_px": 214.9401,
+      "primer_edge_inlier_frac": 0.8167,
+      "fp_core_center_px": [
+        304.9834,
+        246.7518
+      ],
+      "fp_core_radius_px": 76.4806,
+      "fp_max_depth_um": 12.6174,
+      "roughness_um": 0.5526,
+      "aperture_radius_px": 85.5,
+      "aperture_detected": true,
+      "drag_detected": true,
+      "drag_tip_px": [
+        414.0253,
+        247.5536
+      ],
+      "drag_angle_deg": 0.4213,
+      "drag_length_mm": 0.8724,
+      "areas_mm2": {
+        "breech_face_impression": 4.5444,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.1167,
+        "firing_pin_impression": 1.194,
+        "primer_face": 8.3832
+      },
+      "qc_score": 0.4583,
+      "needs_review": true,
+      "qc_factors": {
+        "primer_edge": 0.833,
+        "primer_data": 0.647,
+        "firing_pin": 1.0,
+        "crater_measured": 0.85,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 3.439,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 1.0,
+        "crater_measured_fraction": 0.0064,
+        "impression_circle_iou": 0.7637,
+        "impression_fraction": 0.1564,
+        "breech_face_fraction": 0.5421
+      },
+      "review_reasons": [
+        "low_qc_score",
+        "crater_unmeasured",
+        "impression_not_circular"
+      ],
+      "aperture_shape": "rectangle",
+      "aperture_evidence": {
+        "score": 35.5712,
+        "anisotropy": 13.5498,
+        "width_mm": 1.368,
+        "angle_deg": 2.0,
+        "plateau_step_um": 102.1597,
+        "accepted": true,
+        "center_px": [
+          272.5556,
+          244.1185
+        ],
+        "length_mm": 2.76
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "reason": "no striations along the shear axis stand out from the breech face"
+      },
+      "primer_diameter_mm": 3.439,
+      "fp_core_diameter_mm": 1.224,
+      "aperture_diameter_mm": 1.368
+    }
+  },
+  {
+    "file": "data/glock/9mm__PopStatGlock__BWC506US_G26_RP2.x3p",
+    "source_sha256": "55fb2a1509bf7c468015cf73a3180136f5f185c65561ec4e7dafb2bd4066f34d",
+    "label_sha256": "64cd43c4121ee78669e07b625789710f9143da398d72bc238def857462eb4144",
+    "label_shape": [
+      474,
+      473
+    ],
+    "result": {
+      "name": "9mm__PopStatGlock__BWC506US_G26_RP2",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "firing-pin crater partly unmeasured (no data); outline from data gap",
+        "rectangular aperture: 1.43 mm slot at 178 deg",
+        "impression clipped to the slot (52% outside it)",
+        "no aperture shear found",
+        "Only 13% of the impression has measured height. Review crater geometry.",
+        "Impression agrees with the circular model at IoU 0.84. Review the aperture and drag boundaries."
+      ],
+      "primer_center_px": [
+        236.828,
+        238.8593
+      ],
+      "primer_radius_px": 217.3193,
+      "primer_edge_inlier_frac": 0.8028,
+      "fp_core_center_px": [
+        222.8456,
+        250.9463
+      ],
+      "fp_core_radius_px": 107.2748,
+      "fp_max_depth_um": 60.1737,
+      "roughness_um": 0.7809,
+      "aperture_radius_px": 89.5,
+      "aperture_detected": true,
+      "drag_detected": true,
+      "drag_tip_px": [
+        355.017,
+        261.7925
+      ],
+      "drag_angle_deg": 4.6913,
+      "drag_length_mm": 1.0609,
+      "areas_mm2": {
+        "breech_face_impression": 3.7478,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0446,
+        "firing_pin_impression": 2.2271,
+        "primer_face": 8.5708
+      },
+      "qc_score": 0.329,
+      "needs_review": true,
+      "qc_factors": {
+        "primer_edge": 0.806,
+        "primer_data": 0.48,
+        "firing_pin": 1.0,
+        "crater_measured": 0.85,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 3.4771,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 1.0,
+        "crater_measured_fraction": 0.1258,
+        "impression_circle_iou": 0.8422,
+        "impression_fraction": 0.2651,
+        "breech_face_fraction": 0.4373
+      },
+      "review_reasons": [
+        "low_qc_score",
+        "crater_unmeasured",
+        "impression_not_circular"
+      ],
+      "aperture_shape": "rectangle",
+      "aperture_evidence": {
+        "score": 21.9276,
+        "anisotropy": 7.9862,
+        "width_mm": 1.432,
+        "angle_deg": 178.0,
+        "plateau_step_um": 83.1869,
+        "accepted": true,
+        "center_px": [
+          238.115,
+          250.175
+        ],
+        "length_mm": 3.08
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "reason": "no striations along the shear axis stand out from the breech face"
+      },
+      "primer_diameter_mm": 3.477,
+      "fp_core_diameter_mm": 1.716,
+      "aperture_diameter_mm": 1.432
+    }
+  },
+  {
+    "file": "data/glock/9mm__PopStatGlock__CWS111US_G34_RP1.x3p",
+    "source_sha256": "34e0dd60d7620697bf53cd12a864ac892c3885edd2d4c58d6925ef8e3fe55930",
+    "label_sha256": "0347dc521f41cd8884846df19fe1c7b330fe84dd43158e2bfb0be9da9f6ba6e7",
+    "label_shape": [
+      452,
+      452
+    ],
+    "result": {
+      "name": "9mm__PopStatGlock__CWS111US_G34_RP1",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "firing-pin crater partly unmeasured (no data); outline from data gap",
+        "rectangular aperture: 1.37 mm slot at 0 deg",
+        "impression clipped to the slot (49% outside it)",
+        "no aperture shear found",
+        "Only 8% of the impression has measured height. Review crater geometry.",
+        "Impression agrees with the circular model at IoU 0.78. Review the aperture and drag boundaries."
+      ],
+      "primer_center_px": [
+        224.9988,
+        224.0003
+      ],
+      "primer_radius_px": 205.3731,
+      "primer_edge_inlier_frac": 0.9944,
+      "fp_core_center_px": [
+        230.5938,
+        256.2785
+      ],
+      "fp_core_radius_px": 86.341,
+      "fp_max_depth_um": 73.1651,
+      "roughness_um": 0.5259,
+      "aperture_radius_px": 85.5,
+      "aperture_detected": true,
+      "drag_detected": true,
+      "drag_tip_px": [
+        89.6909,
+        333.3977
+      ],
+      "drag_angle_deg": 151.3071,
+      "drag_length_mm": 1.285,
+      "areas_mm2": {
+        "breech_face_impression": 3.2131,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0343,
+        "firing_pin_impression": 1.4252,
+        "primer_face": 7.6529
+      },
+      "qc_score": 0.4874,
+      "needs_review": true,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 0.573,
+        "firing_pin": 1.0,
+        "crater_measured": 0.85,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 3.286,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 1.0,
+        "crater_measured_fraction": 0.082,
+        "impression_circle_iou": 0.7792,
+        "impression_fraction": 0.1907,
+        "breech_face_fraction": 0.4198
+      },
+      "review_reasons": [
+        "low_qc_score",
+        "crater_unmeasured",
+        "impression_not_circular"
+      ],
+      "aperture_shape": "rectangle",
+      "aperture_evidence": {
+        "score": 85.0914,
+        "anisotropy": 20.0416,
+        "width_mm": 1.368,
+        "angle_deg": 0.0,
+        "plateau_step_um": 90.1036,
+        "accepted": true,
+        "center_px": [
+          230.6808,
+          233.9098
+        ],
+        "length_mm": 3.12
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.0241,
+        "oriented_ratio": 3.8485,
+        "energy_ratio": 8.9103,
+        "consistency": 0.7228,
+        "axis_deg": 124.5613,
+        "axis_error_deg": 26.7459,
+        "sector_deg": 9.3591,
+        "reason": "strongest candidate too small, striations not along the shear axis"
+      },
+      "primer_diameter_mm": 3.286,
+      "fp_core_diameter_mm": 1.381,
+      "aperture_diameter_mm": 1.368
+    }
+  },
+  {
+    "file": "data/matching/9mm__E3__G0002_A0002.001_CC01_TF.x3p",
+    "source_sha256": "c5af4080098203f37757b1a4f4947e69b65258464197edb4dd532356fbca1844",
+    "label_sha256": "1c55779c427c8b3c9f67467777971665d87ede13624a8c787e2e6c8fab6f1cde",
+    "label_shape": [
+      1150,
+      1150
+    ],
+    "result": {
+      "name": "9mm__E3__G0002_A0002.001_CC01_TF",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "no firing-pin drag detected",
+        "no aperture shear found"
+      ],
+      "primer_center_px": [
+        571.4864,
+        584.1357
+      ],
+      "primer_radius_px": 258.3169,
+      "primer_edge_inlier_frac": 1.0,
+      "fp_core_center_px": [
+        561.16,
+        552.8682
+      ],
+      "fp_core_radius_px": 77.6416,
+      "fp_max_depth_um": 618.836,
+      "roughness_um": 3.2262,
+      "aperture_radius_px": 138.0,
+      "aperture_detected": true,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 8.2788,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 1.2273,
+        "primer_face": 12.1075
+      },
+      "qc_score": 1.0,
+      "needs_review": false,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 1.0,
+        "firing_pin": 1.0,
+        "crater_measured": 1.0,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 4.1331,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 0.0,
+        "crater_measured_fraction": 1.0,
+        "impression_circle_iou": 0.9792,
+        "impression_fraction": 0.1014,
+        "breech_face_fraction": 0.6838
+      },
+      "review_reasons": [],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 7.5766,
+        "anisotropy": 1.4163,
+        "width_mm": 2.088,
+        "angle_deg": 38.0,
+        "reason": "edges weak, not direction-selective (ring-like)",
+        "source": "flow-back ring"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.1216,
+        "oriented_ratio": 5.9957,
+        "energy_ratio": 0.9515,
+        "consistency": 0.3507,
+        "axis_deg": 161.7157,
+        "axis_error_deg": 25.7295,
+        "sector_deg": 7.4452,
+        "reason": "strongest candidate not rougher than the breech face, striations not along the shear axis"
+      },
+      "primer_diameter_mm": 4.133,
+      "fp_core_diameter_mm": 1.242,
+      "aperture_diameter_mm": 2.208
+    }
+  },
+  {
+    "file": "data/matching/9mm__E3__G0002_A0002.001_CC02_TF.x3p",
+    "source_sha256": "434005969b4e955e03158b915d5c9e2c0b2f436aa50b411a8aba8355464c9c41",
+    "label_sha256": "fe8c5b66cc472b79722b6e58ce91898dc14905b29f823e2a3d4bc4a32d392222",
+    "label_shape": [
+      1184,
+      1184
+    ],
+    "result": {
+      "name": "9mm__E3__G0002_A0002.001_CC02_TF",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "no firing-pin drag detected",
+        "no aperture shear found"
+      ],
+      "primer_center_px": [
+        591.592,
+        587.6066
+      ],
+      "primer_radius_px": 257.0673,
+      "primer_edge_inlier_frac": 0.9889,
+      "fp_core_center_px": [
+        587.1445,
+        558.9455
+      ],
+      "fp_core_radius_px": 77.8521,
+      "fp_max_depth_um": 580.7968,
+      "roughness_um": 3.5266,
+      "aperture_radius_px": 137.0,
+      "aperture_detected": true,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 8.2179,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 1.2241,
+        "primer_face": 11.9912
+      },
+      "qc_score": 1.0,
+      "needs_review": false,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 1.0,
+        "firing_pin": 1.0,
+        "crater_measured": 1.0,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 4.1131,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 0.0,
+        "crater_measured_fraction": 1.0,
+        "impression_circle_iou": 0.9739,
+        "impression_fraction": 0.1021,
+        "breech_face_fraction": 0.6853
+      },
+      "review_reasons": [],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 5.3571,
+        "anisotropy": 1.3598,
+        "width_mm": 2.184,
+        "angle_deg": 4.0,
+        "reason": "edges weak, not direction-selective (ring-like)",
+        "source": "flow-back ring"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.0184,
+        "oriented_ratio": 3.264,
+        "energy_ratio": 0.7422,
+        "consistency": 0.2353,
+        "axis_deg": 171.4882,
+        "axis_error_deg": 5.0453,
+        "sector_deg": 356.5335,
+        "reason": "strongest candidate too small, not rougher than the breech face, striation direction not consistent"
+      },
+      "primer_diameter_mm": 4.113,
+      "fp_core_diameter_mm": 1.246,
+      "aperture_diameter_mm": 2.192
+    }
+  },
+  {
+    "file": "data/matching/9mm__E3__G0002_A0002.001_CC03_TF.x3p",
+    "source_sha256": "4a724e81183529be1fd0c85c1ffd9977aae03f395dd0f188e4c20510be0e15a7",
+    "label_sha256": "2ccc6e2a846a5dc1d591f84d66c8a8432ab1345105c67ce3369bf316a2884657",
+    "label_shape": [
+      1179,
+      1179
+    ],
+    "result": {
+      "name": "9mm__E3__G0002_A0002.001_CC03_TF",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "no firing-pin drag detected",
+        "no aperture shear found"
+      ],
+      "primer_center_px": [
+        590.7048,
+        575.2558
+      ],
+      "primer_radius_px": 261.1781,
+      "primer_edge_inlier_frac": 0.9778,
+      "fp_core_center_px": [
+        606.3342,
+        549.0533
+      ],
+      "fp_core_radius_px": 76.9434,
+      "fp_max_depth_um": 532.3319,
+      "roughness_um": 3.2911,
+      "aperture_radius_px": 141.0,
+      "aperture_detected": true,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 8.3811,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 1.2022,
+        "primer_face": 12.3775
+      },
+      "qc_score": 1.0,
+      "needs_review": false,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 1.0,
+        "firing_pin": 1.0,
+        "crater_measured": 1.0,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 4.1789,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 0.0,
+        "crater_measured_fraction": 1.0,
+        "impression_circle_iou": 0.9745,
+        "impression_fraction": 0.0971,
+        "breech_face_fraction": 0.6771
+      },
+      "review_reasons": [],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 7.9576,
+        "anisotropy": 1.6479,
+        "width_mm": 2.656,
+        "angle_deg": 88.0,
+        "reason": "edges weak, not direction-selective (ring-like), implausible width",
+        "source": "flow-back ring"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.0441,
+        "oriented_ratio": 5.4948,
+        "energy_ratio": 1.2883,
+        "consistency": 0.3089,
+        "axis_deg": 85.2648,
+        "axis_error_deg": 30.9132,
+        "sector_deg": 234.3516,
+        "reason": "strongest candidate too small, not rougher than the breech face, striations not along the shear axis"
+      },
+      "primer_diameter_mm": 4.179,
+      "fp_core_diameter_mm": 1.231,
+      "aperture_diameter_mm": 2.256
+    }
+  },
+  {
+    "file": "data/matching/9mm__E3__G0104_A0004.002_CC01_TF.x3p",
+    "source_sha256": "227889b1dd5af9c5b7f7be5210dad51a65f732f3ff90b7b60b3b548b236ee07e",
+    "label_sha256": "1f8c35ac0353e2a39621daaacefab5bb492b97b996d668b7d7fcaeee8f23ce42",
+    "label_shape": [
+      1180,
+      1180
+    ],
+    "result": {
+      "name": "9mm__E3__G0104_A0004.002_CC01_TF",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "no flow-back ring; aperture taken as 1.5 x firing-pin radius",
+        "no firing-pin drag detected",
+        "no aperture shear found"
+      ],
+      "primer_center_px": [
+        584.2832,
+        572.4637
+      ],
+      "primer_radius_px": 269.0335,
+      "primer_edge_inlier_frac": 0.9778,
+      "fp_core_center_px": [
+        619.7415,
+        603.3211
+      ],
+      "fp_core_radius_px": 117.0872,
+      "fp_max_depth_um": 603.0633,
+      "roughness_um": 2.7822,
+      "aperture_radius_px": 175.6308,
+      "aperture_detected": false,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 6.9328,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 2.7675,
+        "primer_face": 13.1344
+      },
+      "qc_score": 0.8,
+      "needs_review": false,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 1.0,
+        "firing_pin": 1.0,
+        "crater_measured": 1.0,
+        "aperture": 0.8
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 4.3045,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 0.0,
+        "crater_measured_fraction": 1.0,
+        "impression_circle_iou": 0.9423,
+        "impression_fraction": 0.2107,
+        "breech_face_fraction": 0.5278
+      },
+      "review_reasons": [],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 7.2069,
+        "anisotropy": 3.5849,
+        "width_mm": 3.432,
+        "angle_deg": 152.0,
+        "reason": "edges weak, implausible width"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.3243,
+        "oriented_ratio": 5.6999,
+        "energy_ratio": 1.011,
+        "consistency": 0.2966,
+        "axis_deg": 135.9731,
+        "axis_error_deg": 7.2855,
+        "sector_deg": 143.2586,
+        "reason": "strongest candidate not rougher than the breech face, striation direction not consistent"
+      },
+      "primer_diameter_mm": 4.305,
+      "fp_core_diameter_mm": 1.873,
+      "aperture_diameter_mm": 2.81
+    }
+  },
+  {
+    "file": "data/matching/9mm__E3__G0104_A0004.002_CC02_TF.x3p",
+    "source_sha256": "0a12c888adc4f344a184c3decabaf9071d0869766351f6573c7de0c1d187d832",
+    "label_sha256": "78085c2c1b01a4bf0664d0215a4ff1938fae95787bab0d4bbfc31be9e486d21a",
+    "label_shape": [
+      1186,
+      1186
+    ],
+    "result": {
+      "name": "9mm__E3__G0104_A0004.002_CC02_TF",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "no flow-back ring; aperture taken as 1.5 x firing-pin radius",
+        "no firing-pin drag detected",
+        "no aperture shear found"
+      ],
+      "primer_center_px": [
+        585.1025,
+        594.6123
+      ],
+      "primer_radius_px": 265.6577,
+      "primer_edge_inlier_frac": 1.0,
+      "fp_core_center_px": [
+        618.7046,
+        628.1719
+      ],
+      "fp_core_radius_px": 102.8635,
+      "fp_max_depth_um": 514.6304,
+      "roughness_um": 2.5093,
+      "aperture_radius_px": 154.2952,
+      "aperture_detected": false,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 8.0194,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 2.1592,
+        "primer_face": 12.8061
+      },
+      "qc_score": 0.8,
+      "needs_review": false,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 1.0,
+        "firing_pin": 1.0,
+        "crater_measured": 1.0,
+        "aperture": 0.8
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 4.2505,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 0.0,
+        "crater_measured_fraction": 1.0,
+        "impression_circle_iou": 0.9749,
+        "impression_fraction": 0.1686,
+        "breech_face_fraction": 0.6262
+      },
+      "review_reasons": [],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 9.2376,
+        "anisotropy": 1.5348,
+        "width_mm": 3.392,
+        "angle_deg": 38.0,
+        "reason": "edges weak, not direction-selective (ring-like), implausible width"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.0664,
+        "oriented_ratio": 7.1507,
+        "energy_ratio": 1.3026,
+        "consistency": 0.2594,
+        "axis_deg": 137.3348,
+        "axis_error_deg": 22.8227,
+        "sector_deg": 114.5121,
+        "reason": "strongest candidate not rougher than the breech face, striation direction not consistent, striations not along the shear axis"
+      },
+      "primer_diameter_mm": 4.251,
+      "fp_core_diameter_mm": 1.646,
+      "aperture_diameter_mm": 2.469
+    }
+  },
+  {
+    "file": "data/matching/9mm__E3__G0104_A0004.002_CC03_TF.x3p",
+    "source_sha256": "67f74658f9e38ad60f9d6fa2804f32e79a9457428644048974699dbb7275140e",
+    "label_sha256": "96b33c8623cd74005e29cf13d3fc6f0245d08704ba26b3f51f443857d17a8486",
+    "label_shape": [
+      1173,
+      1173
+    ],
+    "result": {
+      "name": "9mm__E3__G0104_A0004.002_CC03_TF",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "no flow-back ring; aperture taken as 1.5 x firing-pin radius",
+        "no firing-pin drag detected",
+        "no aperture shear found"
+      ],
+      "primer_center_px": [
+        585.193,
+        580.2005
+      ],
+      "primer_radius_px": 268.4603,
+      "primer_edge_inlier_frac": 0.9972,
+      "fp_core_center_px": [
+        609.3094,
+        626.0576
+      ],
+      "fp_core_radius_px": 115.2134,
+      "fp_max_depth_um": 719.3137,
+      "roughness_um": 2.8999,
+      "aperture_radius_px": 172.8201,
+      "aperture_detected": false,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 7.0731,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 2.686,
+        "primer_face": 13.0778
+      },
+      "qc_score": 0.8,
+      "needs_review": false,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 1.0,
+        "firing_pin": 1.0,
+        "crater_measured": 1.0,
+        "aperture": 0.8
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 4.2954,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 0.0,
+        "crater_measured_fraction": 1.0,
+        "impression_circle_iou": 0.9591,
+        "impression_fraction": 0.2054,
+        "breech_face_fraction": 0.5408
+      },
+      "review_reasons": [],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 3.3827,
+        "anisotropy": 2.8763,
+        "width_mm": 3.424,
+        "angle_deg": 8.0,
+        "reason": "edges weak, not direction-selective (ring-like), implausible width"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.4496,
+        "oriented_ratio": 7.145,
+        "energy_ratio": 0.8667,
+        "consistency": 0.2863,
+        "axis_deg": 120.1876,
+        "axis_error_deg": 7.8788,
+        "sector_deg": 308.0664,
+        "reason": "strongest candidate not rougher than the breech face, striation direction not consistent"
+      },
+      "primer_diameter_mm": 4.295,
+      "fp_core_diameter_mm": 1.843,
+      "aperture_diameter_mm": 2.765
+    }
+  },
+  {
+    "file": "data/matching/9mm__E3__G0232_A0006.001_CC01_TF.x3p",
+    "source_sha256": "2b0885aff8caf81984d78b6b00de9515458cc24c32d89ec774ce17018115ba56",
+    "label_sha256": "07ea03195ad24b6881a0405ff208c7ff43dc13072222aef8917886059da62695",
+    "label_shape": [
+      1186,
+      1186
+    ],
+    "result": {
+      "name": "9mm__E3__G0232_A0006.001_CC01_TF",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "no firing-pin drag detected",
+        "no aperture shear found"
+      ],
+      "primer_center_px": [
+        596.9541,
+        601.2623
+      ],
+      "primer_radius_px": 259.5405,
+      "primer_edge_inlier_frac": 0.9889,
+      "fp_core_center_px": [
+        586.4716,
+        596.7257
+      ],
+      "fp_core_radius_px": 76.4592,
+      "fp_max_depth_um": 511.2208,
+      "roughness_um": 2.433,
+      "aperture_radius_px": 140.0,
+      "aperture_detected": true,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 8.2824,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 1.1983,
+        "primer_face": 12.2232
+      },
+      "qc_score": 1.0,
+      "needs_review": false,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 1.0,
+        "firing_pin": 1.0,
+        "crater_measured": 1.0,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 4.1526,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 0.0,
+        "crater_measured_fraction": 1.0,
+        "impression_circle_iou": 0.9719,
+        "impression_fraction": 0.098,
+        "breech_face_fraction": 0.6776
+      },
+      "review_reasons": [],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 4.7161,
+        "anisotropy": 1.4331,
+        "width_mm": 2.024,
+        "angle_deg": 104.0,
+        "reason": "edges weak, not direction-selective (ring-like)",
+        "source": "flow-back ring"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.1752,
+        "oriented_ratio": 10.3062,
+        "energy_ratio": 1.5039,
+        "consistency": 0.3055,
+        "axis_deg": 122.1566,
+        "axis_error_deg": 9.8377,
+        "sector_deg": 311.9943,
+        "reason": "strongest candidate not rougher than the breech face"
+      },
+      "primer_diameter_mm": 4.153,
+      "fp_core_diameter_mm": 1.223,
+      "aperture_diameter_mm": 2.24
+    }
+  },
+  {
+    "file": "data/matching/9mm__E3__G0232_A0006.001_CC02_TF.x3p",
+    "source_sha256": "cbbd287ae8797081771bbf714ea7feace732c47b23b51f355f886285af34b0f0",
+    "label_sha256": "c94ae763660b4ebb7d92267cb4d669c4010460ba9c4841372113e023f62791a1",
+    "label_shape": [
+      1198,
+      1198
+    ],
+    "result": {
+      "name": "9mm__E3__G0232_A0006.001_CC02_TF",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "no flow-back ring; aperture taken as 1.5 x firing-pin radius",
+        "no firing-pin drag detected",
+        "no aperture shear found"
+      ],
+      "primer_center_px": [
+        589.3498,
+        606.9663
+      ],
+      "primer_radius_px": 256.2914,
+      "primer_edge_inlier_frac": 1.0,
+      "fp_core_center_px": [
+        587.2246,
+        609.6765
+      ],
+      "fp_core_radius_px": 62.8465,
+      "fp_max_depth_um": 350.7316,
+      "roughness_um": 2.2813,
+      "aperture_radius_px": 94.2698,
+      "aperture_detected": false,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 10.1317,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 0.8063,
+        "primer_face": 11.9185
+      },
+      "qc_score": 0.8,
+      "needs_review": false,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 1.0,
+        "firing_pin": 1.0,
+        "crater_measured": 1.0,
+        "aperture": 0.8
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 4.1007,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 0.0,
+        "crater_measured_fraction": 1.0,
+        "impression_circle_iou": 0.9783,
+        "impression_fraction": 0.0676,
+        "breech_face_fraction": 0.8501
+      },
+      "review_reasons": [],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 6.4553,
+        "anisotropy": 1.5386,
+        "width_mm": 3.264,
+        "angle_deg": 166.0,
+        "reason": "edges weak, not direction-selective (ring-like), implausible width"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.0898,
+        "oriented_ratio": 6.2919,
+        "energy_ratio": 0.9291,
+        "consistency": 0.1608,
+        "axis_deg": 98.0767,
+        "axis_error_deg": 2.9479,
+        "sector_deg": 281.0246,
+        "reason": "strongest candidate not rougher than the breech face, striation direction not consistent"
+      },
+      "primer_diameter_mm": 4.101,
+      "fp_core_diameter_mm": 1.006,
+      "aperture_diameter_mm": 1.508
+    }
+  },
+  {
+    "file": "data/matching/9mm__E3__G0232_A0006.001_CC03_TF.x3p",
+    "source_sha256": "70592563b936809a5b7ca0e3cd2a4409c9c73be025cfc9389736a241e41b0d22",
+    "label_sha256": "ba53ab6e018e9168f5f1399f6f5fddb723da660f7081e727f4de57a45a9cbc91",
+    "label_shape": [
+      1193,
+      1193
+    ],
+    "result": {
+      "name": "9mm__E3__G0232_A0006.001_CC03_TF",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "primer re-ranked: the strongest edge circle (diameter 3.13 mm) was physically implausible; chose diameter 4.15 mm",
+        "no firing-pin drag detected",
+        "no aperture shear found"
+      ],
+      "primer_center_px": [
+        591.0837,
+        594.7508
+      ],
+      "primer_radius_px": 259.305,
+      "primer_edge_inlier_frac": 0.9972,
+      "fp_core_center_px": [
+        582.6208,
+        602.7037
+      ],
+      "fp_core_radius_px": 72.6889,
+      "fp_max_depth_um": 464.1149,
+      "roughness_um": 2.5907,
+      "aperture_radius_px": 144.0,
+      "aperture_detected": true,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 8.0328,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 1.0814,
+        "primer_face": 12.2017
+      },
+      "qc_score": 1.0,
+      "needs_review": false,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 1.0,
+        "firing_pin": 1.0,
+        "crater_measured": 1.0,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 4.1489,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 0.0,
+        "crater_measured_fraction": 1.0,
+        "impression_circle_iou": 0.9742,
+        "impression_fraction": 0.0886,
+        "breech_face_fraction": 0.6583
+      },
+      "review_reasons": [],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 8.6207,
+        "anisotropy": 1.512,
+        "width_mm": 3.304,
+        "angle_deg": 56.0,
+        "reason": "edges weak, not direction-selective (ring-like), implausible width",
+        "source": "flow-back ring"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.1108,
+        "oriented_ratio": 15.2999,
+        "energy_ratio": 1.2332,
+        "consistency": 0.3364,
+        "axis_deg": 58.8218,
+        "axis_error_deg": 26.0072,
+        "sector_deg": 84.829,
+        "reason": "strongest candidate not rougher than the breech face, striations not along the shear axis"
+      },
+      "primer_diameter_mm": 4.149,
+      "fp_core_diameter_mm": 1.163,
+      "aperture_diameter_mm": 2.304
+    }
+  },
+  {
+    "file": "data/matching/9mm__Fadul__Fadul_1-1.x3p",
+    "source_sha256": "f4ad04474d48deaabcc1bcda463feea0f91c8464d0443014f22209bbbf46b279",
+    "label_sha256": "42d315725f080741d54edc1a346b7cf6dfafc41eece70297285c96e909ba32e1",
+    "label_shape": [
+      478,
+      481
+    ],
+    "result": {
+      "name": "9mm__Fadul__Fadul_1-1",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "firing-pin crater partly unmeasured (no data); outline from data gap",
+        "no firing-pin drag detected",
+        "no aperture shear found",
+        "Only 3% of the impression has measured height. Review crater geometry."
+      ],
+      "primer_center_px": [
+        239.8973,
+        239.3678
+      ],
+      "primer_radius_px": 223.7543,
+      "primer_edge_inlier_frac": 0.975,
+      "fp_core_center_px": [
+        197.3575,
+        242.5697
+      ],
+      "fp_core_radius_px": 96.6223,
+      "fp_max_depth_um": 74.8718,
+      "roughness_um": 0.936,
+      "aperture_radius_px": 151.0,
+      "aperture_detected": true,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 4.3156,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 1.9192,
+        "primer_face": 9.0845
+      },
+      "qc_score": 0.4387,
+      "needs_review": true,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 0.516,
+        "firing_pin": 1.0,
+        "crater_measured": 0.85,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 3.5801,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 1.0,
+        "crater_measured_fraction": 0.0283,
+        "impression_circle_iou": 0.9498,
+        "impression_fraction": 0.2113,
+        "breech_face_fraction": 0.475
+      },
+      "review_reasons": [
+        "low_qc_score",
+        "crater_unmeasured"
+      ],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 14.4372,
+        "anisotropy": 1.802,
+        "width_mm": 1.664,
+        "angle_deg": 28.0,
+        "reason": "not direction-selective (ring-like)",
+        "source": "flow-back ring"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.0281,
+        "oriented_ratio": 18.1556,
+        "energy_ratio": 5.954,
+        "consistency": 0.3464,
+        "axis_deg": 38.9372,
+        "axis_error_deg": 37.4662,
+        "sector_deg": 1.471,
+        "reason": "strongest candidate too small, striations not along the shear axis"
+      },
+      "primer_diameter_mm": 3.58,
+      "fp_core_diameter_mm": 1.546,
+      "aperture_diameter_mm": 2.416
+    }
+  },
+  {
+    "file": "data/matching/9mm__Fadul__Fadul_1-2.x3p",
+    "source_sha256": "59a7c580cfb3dc11c5aefee9be48505636e87dfe5b0b892ac7bad6d6562be157",
+    "label_sha256": "9f6b6c60ef428cb0906054ee09f00af08a9e64ae65d2b55c4854529480fca7d5",
+    "label_shape": [
+      474,
+      479
+    ],
+    "result": {
+      "name": "9mm__Fadul__Fadul_1-2",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "firing-pin crater partly unmeasured (no data); outline from data gap",
+        "no firing-pin drag detected",
+        "no aperture shear found",
+        "Only 5% of the impression has measured height. Review crater geometry."
+      ],
+      "primer_center_px": [
+        240.1881,
+        235.998
+      ],
+      "primer_radius_px": 224.4844,
+      "primer_edge_inlier_frac": 0.925,
+      "fp_core_center_px": [
+        200.1934,
+        259.972
+      ],
+      "fp_core_radius_px": 93.7164,
+      "fp_max_depth_um": 49.0123,
+      "roughness_um": 0.8523,
+      "aperture_radius_px": 154.0,
+      "aperture_detected": true,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 4.2374,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 1.7983,
+        "primer_face": 9.1452
+      },
+      "qc_score": 0.4726,
+      "needs_review": true,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 0.556,
+        "firing_pin": 1.0,
+        "crater_measured": 0.85,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 3.5918,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 1.0,
+        "crater_measured_fraction": 0.0469,
+        "impression_circle_iou": 0.9545,
+        "impression_fraction": 0.1966,
+        "breech_face_fraction": 0.4634
+      },
+      "review_reasons": [
+        "low_qc_score",
+        "crater_unmeasured"
+      ],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 11.2763,
+        "anisotropy": 1.5829,
+        "width_mm": 2.144,
+        "angle_deg": 70.0,
+        "reason": "not direction-selective (ring-like)",
+        "source": "flow-back ring"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.0353,
+        "oriented_ratio": 40.836,
+        "energy_ratio": 8.0266,
+        "consistency": 0.1561,
+        "axis_deg": 14.2194,
+        "axis_error_deg": 32.986,
+        "sector_deg": 161.2334,
+        "reason": "strongest candidate too small, striation direction not consistent, striations not along the shear axis"
+      },
+      "primer_diameter_mm": 3.592,
+      "fp_core_diameter_mm": 1.499,
+      "aperture_diameter_mm": 2.464
+    }
+  },
+  {
+    "file": "data/matching/9mm__Fadul__Fadul_3-1.x3p",
+    "source_sha256": "9b3ce64537558b148bdbc69703d772dad79365040881d61e943f2fd9ea9aa7ed",
+    "label_sha256": "cd743165ce866d1450a84ee3918258ec7bfa2fee8246ebca57f21a501c72e665",
+    "label_shape": [
+      474,
+      465
+    ],
+    "result": {
+      "name": "9mm__Fadul__Fadul_3-1",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "firing-pin crater partly unmeasured (no data); outline from data gap",
+        "Only 4% of the impression has measured height. Review crater geometry."
+      ],
+      "primer_center_px": [
+        231.3193,
+        237.9899
+      ],
+      "primer_radius_px": 218.5097,
+      "primer_edge_inlier_frac": 0.9722,
+      "fp_core_center_px": [
+        255.5376,
+        251.1765
+      ],
+      "fp_core_radius_px": 93.1059,
+      "fp_max_depth_um": 75.0411,
+      "roughness_um": 0.8755,
+      "aperture_radius_px": 152.0,
+      "aperture_detected": true,
+      "drag_detected": true,
+      "drag_tip_px": [
+        382.9135,
+        240.9248
+      ],
+      "drag_angle_deg": -4.6015,
+      "drag_length_mm": 1.0223,
+      "areas_mm2": {
+        "breech_face_impression": 3.7592,
+        "aperture_shear": 0.3419,
+        "firing_pin_shear": 0.0932,
+        "firing_pin_impression": 1.8086,
+        "primer_face": 8.664
+      },
+      "qc_score": 0.458,
+      "needs_review": true,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 0.539,
+        "firing_pin": 1.0,
+        "crater_measured": 0.85,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 3.4962,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 1.0,
+        "crater_measured_fraction": 0.0445,
+        "impression_circle_iou": 0.9012,
+        "impression_fraction": 0.2195,
+        "breech_face_fraction": 0.4339
+      },
+      "review_reasons": [
+        "low_qc_score",
+        "crater_unmeasured"
+      ],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 14.6395,
+        "anisotropy": 1.5055,
+        "width_mm": 2.136,
+        "angle_deg": 148.0,
+        "reason": "not direction-selective (ring-like)",
+        "source": "flow-back ring"
+      },
+      "shear_evidence": {
+        "accepted": true,
+        "area_mm2": 0.3419,
+        "oriented_ratio": 6.965,
+        "energy_ratio": 4.4007,
+        "consistency": 0.5626,
+        "axis_deg": 156.9118,
+        "axis_error_deg": 18.4867,
+        "sector_deg": 218.9972
+      },
+      "primer_diameter_mm": 3.496,
+      "fp_core_diameter_mm": 1.49,
+      "aperture_diameter_mm": 2.432
+    }
+  },
+  {
+    "file": "data/matching/9mm__Fadul__Fadul_3-2.x3p",
+    "source_sha256": "655012be2e305c6ed529f91ca5fcbd22c268292d27a3730021a2b6ff7b96216b",
+    "label_sha256": "63766173a9dcea6824bc84c519ada250fe298ed210b8384a286900df4dbbd5cd",
+    "label_shape": [
+      481,
+      470
+    ],
+    "result": {
+      "name": "9mm__Fadul__Fadul_3-2",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "firing-pin crater partly unmeasured (no data); outline from data gap",
+        "no aperture shear found",
+        "Only 3% of the impression has measured height. Review crater geometry."
+      ],
+      "primer_center_px": [
+        235.1479,
+        238.4259
+      ],
+      "primer_radius_px": 219.1041,
+      "primer_edge_inlier_frac": 0.9667,
+      "fp_core_center_px": [
+        244.9151,
+        261.9029
+      ],
+      "fp_core_radius_px": 91.6232,
+      "fp_max_depth_um": 98.8526,
+      "roughness_um": 0.8421,
+      "aperture_radius_px": 151.0,
+      "aperture_detected": true,
+      "drag_detected": true,
+      "drag_tip_px": [
+        372.2793,
+        252.9911
+      ],
+      "drag_angle_deg": -4.0025,
+      "drag_length_mm": 1.0214,
+      "areas_mm2": {
+        "breech_face_impression": 3.9116,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.087,
+        "firing_pin_impression": 1.7433,
+        "primer_face": 8.7112
+      },
+      "qc_score": 0.4647,
+      "needs_review": true,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 0.547,
+        "firing_pin": 1.0,
+        "crater_measured": 0.85,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 3.5057,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 1.0,
+        "crater_measured_fraction": 0.0311,
+        "impression_circle_iou": 0.9053,
+        "impression_fraction": 0.2101,
+        "breech_face_fraction": 0.449
+      },
+      "review_reasons": [
+        "low_qc_score",
+        "crater_unmeasured"
+      ],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 24.2451,
+        "anisotropy": 2.0289,
+        "width_mm": 2.432,
+        "angle_deg": 88.0,
+        "reason": "not direction-selective (ring-like), implausible width",
+        "source": "flow-back ring"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.07,
+        "oriented_ratio": 8.3399,
+        "energy_ratio": 5.4007,
+        "consistency": 0.6118,
+        "axis_deg": 148.9523,
+        "axis_error_deg": 27.0451,
+        "sector_deg": 233.469,
+        "reason": "strongest candidate striations not along the shear axis"
+      },
+      "primer_diameter_mm": 3.506,
+      "fp_core_diameter_mm": 1.466,
+      "aperture_diameter_mm": 2.416
+    }
+  },
+  {
+    "file": "data/matching/9mm__Fadul__Fadul_5-1.x3p",
+    "source_sha256": "9b391d120accfaae525b8d2534d32d5d5daa2348f541b7748f8a1e0471f3c48d",
+    "label_sha256": "4a9b24409ca253cdb82c583938a277e5e492e26b674322d6669d3b080a104971",
+    "label_shape": [
+      489,
+      484
+    ],
+    "result": {
+      "name": "9mm__Fadul__Fadul_5-1",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "firing-pin crater partly unmeasured (no data); outline from data gap",
+        "no firing-pin drag detected",
+        "no aperture shear found",
+        "Only 2% of the impression has measured height. Review crater geometry."
+      ],
+      "primer_center_px": [
+        241.2957,
+        243.8984
+      ],
+      "primer_radius_px": 225.1126,
+      "primer_edge_inlier_frac": 0.9833,
+      "fp_core_center_px": [
+        247.3329,
+        279.8312
+      ],
+      "fp_core_radius_px": 92.7789,
+      "fp_max_depth_um": 101.2612,
+      "roughness_um": 0.7871,
+      "aperture_radius_px": 149.0,
+      "aperture_detected": true,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 4.4976,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 1.7897,
+        "primer_face": 9.1953
+      },
+      "qc_score": 0.4828,
+      "needs_review": true,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 0.568,
+        "firing_pin": 1.0,
+        "crater_measured": 0.85,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 3.6018,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 1.0,
+        "crater_measured_fraction": 0.0227,
+        "impression_circle_iou": 0.9468,
+        "impression_fraction": 0.1946,
+        "breech_face_fraction": 0.4891
+      },
+      "review_reasons": [
+        "low_qc_score",
+        "crater_unmeasured"
+      ],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 34.0239,
+        "anisotropy": 2.1471,
+        "width_mm": 2.16,
+        "angle_deg": 58.0,
+        "reason": "not direction-selective (ring-like)",
+        "source": "flow-back ring"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.0476,
+        "oriented_ratio": 7.6749,
+        "energy_ratio": 2.176,
+        "consistency": 0.3809,
+        "axis_deg": 118.6189,
+        "axis_error_deg": 31.3285,
+        "sector_deg": 329.9474,
+        "reason": "strongest candidate too small, striations not along the shear axis"
+      },
+      "primer_diameter_mm": 3.602,
+      "fp_core_diameter_mm": 1.484,
+      "aperture_diameter_mm": 2.384
+    }
+  },
+  {
+    "file": "data/matching/9mm__Fadul__Fadul_5-2.x3p",
+    "source_sha256": "869e650985ab2b273bd501bc33658ae57d514b0af36f8fe8b9af97a6f7a05cab",
+    "label_sha256": "b9bff3cb8004d8ea6e07fa291690f22bb1acb42d50645c584a4483fd04965087",
+    "label_shape": [
+      489,
+      479
+    ],
+    "result": {
+      "name": "9mm__Fadul__Fadul_5-2",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "firing-pin crater partly unmeasured (no data); outline from data gap",
+        "no aperture shear found",
+        "Only 3% of the impression has measured height. Review crater geometry."
+      ],
+      "primer_center_px": [
+        241.0483,
+        242.4158
+      ],
+      "primer_radius_px": 221.4553,
+      "primer_edge_inlier_frac": 0.9389,
+      "fp_core_center_px": [
+        233.9641,
+        283.355
+      ],
+      "fp_core_radius_px": 92.148,
+      "fp_max_depth_um": 51.1723,
+      "roughness_um": 0.8419,
+      "aperture_radius_px": 148.0,
+      "aperture_detected": true,
+      "drag_detected": true,
+      "drag_tip_px": [
+        344.2969,
+        280.1179
+      ],
+      "drag_angle_deg": -1.6805,
+      "drag_length_mm": 0.883,
+      "areas_mm2": {
+        "breech_face_impression": 4.2285,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.023,
+        "firing_pin_impression": 1.7631,
+        "primer_face": 8.8984
+      },
+      "qc_score": 0.4542,
+      "needs_review": true,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 0.534,
+        "firing_pin": 1.0,
+        "crater_measured": 0.85,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 3.5433,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 1.0,
+        "crater_measured_fraction": 0.0295,
+        "impression_circle_iou": 0.9304,
+        "impression_fraction": 0.2007,
+        "breech_face_fraction": 0.4752
+      },
+      "review_reasons": [
+        "low_qc_score",
+        "crater_unmeasured"
+      ],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 27.3286,
+        "anisotropy": 1.9212,
+        "width_mm": 2.352,
+        "angle_deg": 128.0,
+        "reason": "not direction-selective (ring-like), implausible width",
+        "source": "flow-back ring"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.043,
+        "oriented_ratio": 6.5858,
+        "energy_ratio": 5.9738,
+        "consistency": 0.7273,
+        "axis_deg": 150.8699,
+        "axis_error_deg": 27.4496,
+        "sector_deg": 242.4289,
+        "reason": "strongest candidate too small, striations not along the shear axis"
+      },
+      "primer_diameter_mm": 3.543,
+      "fp_core_diameter_mm": 1.474,
+      "aperture_diameter_mm": 2.368
+    }
+  },
+  {
+    "file": "data/matching/9mm__Fadul__Fadul_7-1.x3p",
+    "source_sha256": "f9987dd7040328dddba59dd8eea5615621358a45b65c65514f67e6753771d9a6",
+    "label_sha256": "d4bcb774c9675465ab950801d3bc5dec76543cac839ee2d55eb63658131734c8",
+    "label_shape": [
+      495,
+      498
+    ],
+    "result": {
+      "name": "9mm__Fadul__Fadul_7-1",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "firing-pin crater partly unmeasured (no data); outline from data gap",
+        "no firing-pin drag detected",
+        "no aperture shear found",
+        "Only 3% of the impression has measured height. Review crater geometry."
+      ],
+      "primer_center_px": [
+        247.8159,
+        248.3165
+      ],
+      "primer_radius_px": 227.1968,
+      "primer_edge_inlier_frac": 0.9889,
+      "fp_core_center_px": [
+        239.8552,
+        272.5568
+      ],
+      "fp_core_radius_px": 91.4343,
+      "fp_max_depth_um": 48.866,
+      "roughness_um": 0.8728,
+      "aperture_radius_px": 155.0,
+      "aperture_detected": true,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 4.3013,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 1.7027,
+        "primer_face": 9.367
+      },
+      "qc_score": 0.4795,
+      "needs_review": true,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 0.564,
+        "firing_pin": 1.0,
+        "crater_measured": 0.85,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 3.6351,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 1.0,
+        "crater_measured_fraction": 0.026,
+        "impression_circle_iou": 0.9629,
+        "impression_fraction": 0.1818,
+        "breech_face_fraction": 0.4592
+      },
+      "review_reasons": [
+        "low_qc_score",
+        "crater_unmeasured"
+      ],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 22.9335,
+        "anisotropy": 1.6375,
+        "width_mm": 2.448,
+        "angle_deg": 28.0,
+        "reason": "not direction-selective (ring-like), implausible width",
+        "source": "flow-back ring"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.02,
+        "oriented_ratio": 3.4604,
+        "energy_ratio": 0.9481,
+        "consistency": 0.337,
+        "axis_deg": 26.8914,
+        "axis_error_deg": 22.9469,
+        "sector_deg": 49.8383,
+        "reason": "strongest candidate too small, not rougher than the breech face, striations not along the shear axis"
+      },
+      "primer_diameter_mm": 3.635,
+      "fp_core_diameter_mm": 1.463,
+      "aperture_diameter_mm": 2.48
+    }
+  },
+  {
+    "file": "data/matching/9mm__Fadul__Fadul_7-2.x3p",
+    "source_sha256": "ea468905f8836d6a4d533630aece5bdb8d5c7c74675ee8ca1b1e24ad845a825a",
+    "label_sha256": "1846bfaec562c4ad8a463720a374a11d060ae201ac9532391eef2922eccf9873",
+    "label_shape": [
+      495,
+      493
+    ],
+    "result": {
+      "name": "9mm__Fadul__Fadul_7-2",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "firing-pin crater partly unmeasured (no data); outline from data gap",
+        "no firing-pin drag detected",
+        "no aperture shear found",
+        "Only 3% of the impression has measured height. Review crater geometry."
+      ],
+      "primer_center_px": [
+        249.0202,
+        241.6092
+      ],
+      "primer_radius_px": 228.2501,
+      "primer_edge_inlier_frac": 0.9389,
+      "fp_core_center_px": [
+        241.111,
+        269.4495
+      ],
+      "fp_core_radius_px": 94.604,
+      "fp_max_depth_um": 54.0631,
+      "roughness_um": 0.8567,
+      "aperture_radius_px": 154.0,
+      "aperture_detected": true,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 4.4949,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 1.8208,
+        "primer_face": 9.4541
+      },
+      "qc_score": 0.4882,
+      "needs_review": true,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 0.574,
+        "firing_pin": 1.0,
+        "crater_measured": 0.85,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 3.652,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 1.0,
+        "crater_measured_fraction": 0.0289,
+        "impression_circle_iou": 0.9687,
+        "impression_fraction": 0.1926,
+        "breech_face_fraction": 0.4754
+      },
+      "review_reasons": [
+        "low_qc_score",
+        "crater_unmeasured"
+      ],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 20.0923,
+        "anisotropy": 1.4409,
+        "width_mm": 2.488,
+        "angle_deg": 40.0,
+        "reason": "not direction-selective (ring-like), implausible width",
+        "source": "flow-back ring"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.0369,
+        "oriented_ratio": 4.8427,
+        "energy_ratio": 1.0211,
+        "consistency": 0.2611,
+        "axis_deg": 39.5527,
+        "axis_error_deg": 14.866,
+        "sector_deg": 234.4188,
+        "reason": "strongest candidate too small, not rougher than the breech face, striation direction not consistent"
+      },
+      "primer_diameter_mm": 3.652,
+      "fp_core_diameter_mm": 1.514,
+      "aperture_diameter_mm": 2.464
+    }
+  },
+  {
+    "file": "data/matching/9mm__Fadul__Fadul_9-1.x3p",
+    "source_sha256": "367b97e470a8dc883644a7e1a8701da0e35b4caaa53b85f068baeb354d653eb2",
+    "label_sha256": "03e1252cf2b30ca6a81f54b72f35c05158bbbc9bb80ddb07971d81c8a9226d2e",
+    "label_shape": [
+      498,
+      500
+    ],
+    "result": {
+      "name": "9mm__Fadul__Fadul_9-1",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "firing-pin crater partly unmeasured (no data); outline from data gap",
+        "no firing-pin drag detected",
+        "no aperture shear found",
+        "Only 1% of the impression has measured height. Review crater geometry."
+      ],
+      "primer_center_px": [
+        251.8039,
+        248.2336
+      ],
+      "primer_radius_px": 229.5665,
+      "primer_edge_inlier_frac": 0.9861,
+      "fp_core_center_px": [
+        247.6951,
+        275.8942
+      ],
+      "fp_core_radius_px": 92.484,
+      "fp_max_depth_um": 63.3738,
+      "roughness_um": 0.8951,
+      "aperture_radius_px": 152.0,
+      "aperture_detected": true,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 4.6368,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 1.7384,
+        "primer_face": 9.5622
+      },
+      "qc_score": 0.4334,
+      "needs_review": true,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 0.51,
+        "firing_pin": 1.0,
+        "crater_measured": 0.85,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 3.6731,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 1.0,
+        "crater_measured_fraction": 0.0147,
+        "impression_circle_iou": 0.9609,
+        "impression_fraction": 0.1818,
+        "breech_face_fraction": 0.4849
+      },
+      "review_reasons": [
+        "low_qc_score",
+        "crater_unmeasured"
+      ],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 16.9013,
+        "anisotropy": 1.4953,
+        "width_mm": 2.448,
+        "angle_deg": 28.0,
+        "reason": "not direction-selective (ring-like), implausible width",
+        "source": "flow-back ring"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.0088,
+        "oriented_ratio": 4.58,
+        "energy_ratio": 3.0499,
+        "consistency": 0.073,
+        "axis_deg": 134.4886,
+        "axis_error_deg": 56.3115,
+        "sector_deg": 10.8001,
+        "reason": "strongest candidate too small, striation direction not consistent, striations not along the shear axis"
+      },
+      "primer_diameter_mm": 3.673,
+      "fp_core_diameter_mm": 1.48,
+      "aperture_diameter_mm": 2.432
+    }
+  },
+  {
+    "file": "data/matching/9mm__Fadul__Fadul_9-2.x3p",
+    "source_sha256": "556fc681b1338edda3b2fb14d4adc7d5c7f767bb533485c7950d239cf71ab207",
+    "label_sha256": "9d28222ab066ec584d7ee54009a6816a04c4b74c29bbdc361b953b191a74ef1a",
+    "label_shape": [
+      486,
+      489
+    ],
+    "result": {
+      "name": "9mm__Fadul__Fadul_9-2",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "firing-pin crater partly unmeasured (no data); outline from data gap",
+        "no firing-pin drag detected",
+        "no aperture shear found",
+        "Only 2% of the impression has measured height. Review crater geometry."
+      ],
+      "primer_center_px": [
+        248.7767,
+        242.2103
+      ],
+      "primer_radius_px": 221.7662,
+      "primer_edge_inlier_frac": 0.9639,
+      "fp_core_center_px": [
+        246.5918,
+        282.5927
+      ],
+      "fp_core_radius_px": 93.061,
+      "fp_max_depth_um": 56.4479,
+      "roughness_um": 0.856,
+      "aperture_radius_px": 153.0,
+      "aperture_detected": true,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 4.0224,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 1.8083,
+        "primer_face": 8.9231
+      },
+      "qc_score": 0.4436,
+      "needs_review": true,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 0.522,
+        "firing_pin": 1.0,
+        "crater_measured": 0.85,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 3.5483,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 1.0,
+        "crater_measured_fraction": 0.0209,
+        "impression_circle_iou": 0.9429,
+        "impression_fraction": 0.2027,
+        "breech_face_fraction": 0.4508
+      },
+      "review_reasons": [
+        "low_qc_score",
+        "crater_unmeasured"
+      ],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 28.9339,
+        "anisotropy": 2.2664,
+        "width_mm": 2.384,
+        "angle_deg": 100.0,
+        "reason": "not direction-selective (ring-like), implausible width",
+        "source": "flow-back ring"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.0426,
+        "oriented_ratio": 11.0584,
+        "energy_ratio": 1.6485,
+        "consistency": 0.1694,
+        "axis_deg": 119.3926,
+        "axis_error_deg": 35.8685,
+        "sector_deg": 335.2612,
+        "reason": "strongest candidate too small, striation direction not consistent, striations not along the shear axis"
+      },
+      "primer_diameter_mm": 3.548,
+      "fp_core_diameter_mm": 1.489,
+      "aperture_diameter_mm": 2.448
+    }
+  },
+  {
+    "file": "data/raw/40SW__CTS15-526__G1_B006_1.x3p",
+    "source_sha256": "d22437100448b839768f403f33240d50b41bae7cdcb7d4af7107603cfd4e4d6f",
+    "label_sha256": "95b532cc4381affdff0d956e12520a04129ed49d37e154228368fe5621f0b9a2",
+    "label_shape": [
+      100,
+      100
+    ],
+    "result": {
+      "name": "40SW__CTS15-526__G1_B006_1",
+      "um_per_px": 8.0,
+      "status": "skipped",
+      "warnings": [
+        "field of view 0.80 mm is smaller than a primer; scan probably covers the firing-pin impression only"
+      ],
+      "primer_center_px": null,
+      "primer_radius_px": null,
+      "primer_edge_inlier_frac": null,
+      "fp_core_center_px": null,
+      "fp_core_radius_px": null,
+      "fp_max_depth_um": null,
+      "roughness_um": null,
+      "aperture_radius_px": null,
+      "aperture_detected": false,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {},
+      "qc_score": 0.0,
+      "needs_review": true,
+      "qc_factors": {},
+      "qc_observations": {},
+      "review_reasons": [],
+      "aperture_shape": "circle",
+      "aperture_evidence": {},
+      "shear_evidence": {}
+    }
+  },
+  {
+    "file": "data/raw/40SW__Lightstone__Lightstone_SW_1-1.x3p",
+    "source_sha256": "019c3a1f9d047054965b74b730d24824df3c8a2c0b8f8297bd5ebb9e32874c18",
+    "label_sha256": "f9d063937520da45d2edf5b91b6cb44a6ec94fc8f3d01f10ae83ae1f1b55f54f",
+    "label_shape": [
+      502,
+      501
+    ],
+    "result": {
+      "name": "40SW__Lightstone__Lightstone_SW_1-1",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "firing-pin crater partly unmeasured (no data); outline from data gap",
+        "no flow-back ring; aperture taken as 1.5 x firing-pin radius",
+        "Only 6% of the impression has measured height. Review crater geometry."
+      ],
+      "primer_center_px": [
+        249.4602,
+        250.4726
+      ],
+      "primer_radius_px": 233.829,
+      "primer_edge_inlier_frac": 0.9889,
+      "fp_core_center_px": [
+        272.5174,
+        267.6393
+      ],
+      "fp_core_radius_px": 104.0043,
+      "fp_max_depth_um": 84.4765,
+      "roughness_um": 0.6358,
+      "aperture_radius_px": 156.0064,
+      "aperture_detected": false,
+      "drag_detected": true,
+      "drag_tip_px": [
+        404.4062,
+        260.3992
+      ],
+      "drag_angle_deg": -3.1421,
+      "drag_length_mm": 1.0567,
+      "areas_mm2": {
+        "breech_face_impression": 4.9768,
+        "aperture_shear": 0.6462,
+        "firing_pin_shear": 0.0643,
+        "firing_pin_impression": 2.2433,
+        "primer_face": 9.9228
+      },
+      "qc_score": 0.4171,
+      "needs_review": true,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 0.613,
+        "firing_pin": 1.0,
+        "crater_measured": 0.85,
+        "aperture": 0.8
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 3.7413,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 1.0,
+        "crater_measured_fraction": 0.0603,
+        "impression_circle_iou": 0.9156,
+        "impression_fraction": 0.2326,
+        "breech_face_fraction": 0.5015
+      },
+      "review_reasons": [
+        "low_qc_score",
+        "crater_unmeasured"
+      ],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 7.0777,
+        "anisotropy": 1.8401,
+        "width_mm": 1.864,
+        "angle_deg": 156.0,
+        "reason": "edges weak, not direction-selective (ring-like)"
+      },
+      "shear_evidence": {
+        "accepted": true,
+        "area_mm2": 0.6462,
+        "oriented_ratio": 6.9085,
+        "energy_ratio": 1.8579,
+        "consistency": 0.6504,
+        "axis_deg": 179.2118,
+        "axis_error_deg": 2.3539,
+        "sector_deg": 220.8595
+      },
+      "primer_diameter_mm": 3.741,
+      "fp_core_diameter_mm": 1.664,
+      "aperture_diameter_mm": 2.496
+    }
+  },
+  {
+    "file": "data/raw/40SW__Lightstone__Lightstone_SW_6-1.x3p",
+    "source_sha256": "afb9fb205fe61ddcff0fc314237658317e8b10cfa1acb2672a4adb0b5d5aca6e",
+    "label_sha256": "f7e8d2d5aaff34c5efb2f1c367d6ecc6c1828e8c31d3d97666ae7d61ca8e5b7f",
+    "label_shape": [
+      511,
+      512
+    ],
+    "result": {
+      "name": "40SW__Lightstone__Lightstone_SW_6-1",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "firing-pin crater partly unmeasured (no data); outline from data gap",
+        "no flow-back ring; aperture taken as 1.5 x firing-pin radius",
+        "no firing-pin drag detected",
+        "Only 14% of the impression has measured height. Review crater geometry."
+      ],
+      "primer_center_px": [
+        260.5966,
+        255.2965
+      ],
+      "primer_radius_px": 237.7495,
+      "primer_edge_inlier_frac": 0.9917,
+      "fp_core_center_px": [
+        278.0124,
+        253.6492
+      ],
+      "fp_core_radius_px": 121.6064,
+      "fp_max_depth_um": 72.4491,
+      "roughness_um": 0.6008,
+      "aperture_radius_px": 182.4096,
+      "aperture_detected": false,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 3.5649,
+        "aperture_shear": 0.3724,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 2.9796,
+        "primer_face": 10.2575
+      },
+      "qc_score": 0.3705,
+      "needs_review": true,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 0.545,
+        "firing_pin": 1.0,
+        "crater_measured": 0.85,
+        "aperture": 0.8
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 3.804,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 1.0,
+        "crater_measured_fraction": 0.136,
+        "impression_circle_iou": 0.9006,
+        "impression_fraction": 0.2905,
+        "breech_face_fraction": 0.3475
+      },
+      "review_reasons": [
+        "low_qc_score",
+        "crater_unmeasured"
+      ],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 4.1578,
+        "anisotropy": 2.4573,
+        "width_mm": 0.856,
+        "angle_deg": 16.0,
+        "reason": "edges weak, not direction-selective (ring-like)"
+      },
+      "shear_evidence": {
+        "accepted": true,
+        "area_mm2": 0.3724,
+        "oriented_ratio": 10.4822,
+        "energy_ratio": 2.5434,
+        "consistency": 0.4708,
+        "axis_deg": 178.7897,
+        "axis_error_deg": 6.6985,
+        "sector_deg": 185.4882
+      },
+      "primer_diameter_mm": 3.804,
+      "fp_core_diameter_mm": 1.946,
+      "aperture_diameter_mm": 2.919
+    }
+  },
+  {
+    "file": "data/raw/9mm__E3__G0002_A0002.001_CC01_TF.x3p",
+    "source_sha256": "c5af4080098203f37757b1a4f4947e69b65258464197edb4dd532356fbca1844",
+    "label_sha256": "1c55779c427c8b3c9f67467777971665d87ede13624a8c787e2e6c8fab6f1cde",
+    "label_shape": [
+      1150,
+      1150
+    ],
+    "result": {
+      "name": "9mm__E3__G0002_A0002.001_CC01_TF",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "no firing-pin drag detected",
+        "no aperture shear found"
+      ],
+      "primer_center_px": [
+        571.4864,
+        584.1357
+      ],
+      "primer_radius_px": 258.3169,
+      "primer_edge_inlier_frac": 1.0,
+      "fp_core_center_px": [
+        561.16,
+        552.8682
+      ],
+      "fp_core_radius_px": 77.6416,
+      "fp_max_depth_um": 618.836,
+      "roughness_um": 3.2262,
+      "aperture_radius_px": 138.0,
+      "aperture_detected": true,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 8.2788,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 1.2273,
+        "primer_face": 12.1075
+      },
+      "qc_score": 1.0,
+      "needs_review": false,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 1.0,
+        "firing_pin": 1.0,
+        "crater_measured": 1.0,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 4.1331,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 0.0,
+        "crater_measured_fraction": 1.0,
+        "impression_circle_iou": 0.9792,
+        "impression_fraction": 0.1014,
+        "breech_face_fraction": 0.6838
+      },
+      "review_reasons": [],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 7.5766,
+        "anisotropy": 1.4163,
+        "width_mm": 2.088,
+        "angle_deg": 38.0,
+        "reason": "edges weak, not direction-selective (ring-like)",
+        "source": "flow-back ring"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.1216,
+        "oriented_ratio": 5.9957,
+        "energy_ratio": 0.9515,
+        "consistency": 0.3507,
+        "axis_deg": 161.7157,
+        "axis_error_deg": 25.7295,
+        "sector_deg": 7.4452,
+        "reason": "strongest candidate not rougher than the breech face, striations not along the shear axis"
+      },
+      "primer_diameter_mm": 4.133,
+      "fp_core_diameter_mm": 1.242,
+      "aperture_diameter_mm": 2.208
+    }
+  },
+  {
+    "file": "data/raw/9mm__E3__G0042_A0005.002_CC01_TF.x3p",
+    "source_sha256": "cf8f6c3067d5a8d38f5617c5b94c7d5e3ce58e74d5828030ad41f275d04e1e89",
+    "label_sha256": "6a63f04b51e177302221eb7ca561be94f552f08a6d6e4959c6241b54858c37f9",
+    "label_shape": [
+      1193,
+      1193
+    ],
+    "result": {
+      "name": "9mm__E3__G0042_A0005.002_CC01_TF",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "no firing-pin drag detected",
+        "no aperture shear found"
+      ],
+      "primer_center_px": [
+        598.9273,
+        601.2792
+      ],
+      "primer_radius_px": 277.3189,
+      "primer_edge_inlier_frac": 0.9417,
+      "fp_core_center_px": [
+        611.3008,
+        620.5288
+      ],
+      "fp_core_radius_px": 64.0216,
+      "fp_max_depth_um": 264.7609,
+      "roughness_um": 2.697,
+      "aperture_radius_px": 132.0,
+      "aperture_detected": true,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 10.4522,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 0.8366,
+        "primer_face": 13.9554
+      },
+      "qc_score": 1.0,
+      "needs_review": false,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 1.0,
+        "firing_pin": 1.0,
+        "crater_measured": 1.0,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 4.4371,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 0.0,
+        "crater_measured_fraction": 1.0,
+        "impression_circle_iou": 0.9744,
+        "impression_fraction": 0.0599,
+        "breech_face_fraction": 0.749
+      },
+      "review_reasons": [],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 3.9951,
+        "anisotropy": 1.3636,
+        "width_mm": 1.96,
+        "angle_deg": 50.0,
+        "reason": "edges weak, not direction-selective (ring-like)",
+        "source": "flow-back ring"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.153,
+        "oriented_ratio": 7.3281,
+        "energy_ratio": 1.2032,
+        "consistency": 0.1645,
+        "axis_deg": 175.9386,
+        "axis_error_deg": 5.924,
+        "sector_deg": 1.8625,
+        "reason": "strongest candidate not rougher than the breech face, striation direction not consistent"
+      },
+      "primer_diameter_mm": 4.437,
+      "fp_core_diameter_mm": 1.024,
+      "aperture_diameter_mm": 2.112
+    }
+  },
+  {
+    "file": "data/raw/9mm__E3__G0079_A0004.001_CC01_TF.x3p",
+    "source_sha256": "b1b05a5c99f7ef0edd58d0f3ad751bff2fa04393981645d918a9a944d96ff4c1",
+    "label_sha256": "180dbeee0d80c2ee7505e141a2eef1a91091c18bc3f7d8ed1ced7cde635a7009",
+    "label_shape": [
+      1171,
+      1171
+    ],
+    "result": {
+      "name": "9mm__E3__G0079_A0004.001_CC01_TF",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "no flow-back ring; aperture taken as 1.5 x firing-pin radius",
+        "no firing-pin drag detected",
+        "no aperture shear found"
+      ],
+      "primer_center_px": [
+        581.2936,
+        593.4177
+      ],
+      "primer_radius_px": 264.3568,
+      "primer_edge_inlier_frac": 0.9917,
+      "fp_core_center_px": [
+        601.1214,
+        620.2259
+      ],
+      "fp_core_radius_px": 64.7531,
+      "fp_max_depth_um": 323.814,
+      "roughness_um": 2.5196,
+      "aperture_radius_px": 97.1297,
+      "aperture_detected": false,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 10.7845,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 0.8581,
+        "primer_face": 12.6816
+      },
+      "qc_score": 0.8,
+      "needs_review": false,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 1.0,
+        "firing_pin": 1.0,
+        "crater_measured": 1.0,
+        "aperture": 0.8
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 4.2297,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 0.0,
+        "crater_measured_fraction": 1.0,
+        "impression_circle_iou": 0.9805,
+        "impression_fraction": 0.0677,
+        "breech_face_fraction": 0.8504
+      },
+      "review_reasons": [],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 7.7563,
+        "anisotropy": 1.412,
+        "width_mm": 3.368,
+        "angle_deg": 32.0,
+        "reason": "edges weak, not direction-selective (ring-like), implausible width"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.2915,
+        "oriented_ratio": 5.9833,
+        "energy_ratio": 0.8675,
+        "consistency": 0.1634,
+        "axis_deg": 76.9773,
+        "axis_error_deg": 4.6448,
+        "sector_deg": 252.3325,
+        "reason": "strongest candidate not rougher than the breech face, striation direction not consistent"
+      },
+      "primer_diameter_mm": 4.23,
+      "fp_core_diameter_mm": 1.036,
+      "aperture_diameter_mm": 1.554
+    }
+  },
+  {
+    "file": "data/raw/9mm__E3__G0132_A0004.002_CC01_TF.x3p",
+    "source_sha256": "5d902e879da4de048bacd5afa278e54c1686f18c912cacd6729c329381bfefc5",
+    "label_sha256": "4e70f2cc3a0bd76b422ac8972793695ba5cf3b90b4a8abe43b59c6aaf98cea20",
+    "label_shape": [
+      1193,
+      1193
+    ],
+    "result": {
+      "name": "9mm__E3__G0132_A0004.002_CC01_TF",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "no flow-back ring; aperture taken as 1.5 x firing-pin radius",
+        "no firing-pin drag detected",
+        "no aperture shear found"
+      ],
+      "primer_center_px": [
+        590.0021,
+        592.5731
+      ],
+      "primer_radius_px": 263.9288,
+      "primer_edge_inlier_frac": 1.0,
+      "fp_core_center_px": [
+        602.291,
+        630.7657
+      ],
+      "fp_core_radius_px": 96.996,
+      "fp_max_depth_um": 514.6423,
+      "roughness_um": 2.2759,
+      "aperture_radius_px": 145.4939,
+      "aperture_detected": false,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 8.3843,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 1.9091,
+        "primer_face": 12.6408
+      },
+      "qc_score": 0.8,
+      "needs_review": false,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 1.0,
+        "firing_pin": 1.0,
+        "crater_measured": 1.0,
+        "aperture": 0.8
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 4.2229,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 0.0,
+        "crater_measured_fraction": 1.0,
+        "impression_circle_iou": 0.9821,
+        "impression_fraction": 0.151,
+        "breech_face_fraction": 0.6633
+      },
+      "review_reasons": [],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 11.3947,
+        "anisotropy": 1.3945,
+        "width_mm": 3.368,
+        "angle_deg": 52.0,
+        "reason": "not direction-selective (ring-like), implausible width"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.214,
+        "oriented_ratio": 6.6074,
+        "energy_ratio": 1.0296,
+        "consistency": 0.237,
+        "axis_deg": 119.7258,
+        "axis_error_deg": 11.1699,
+        "sector_deg": 130.8957,
+        "reason": "strongest candidate not rougher than the breech face, striation direction not consistent"
+      },
+      "primer_diameter_mm": 4.223,
+      "fp_core_diameter_mm": 1.552,
+      "aperture_diameter_mm": 2.328
+    }
+  },
+  {
+    "file": "data/raw/9mm__E3__G0178_A0005.001_CC01_TF.x3p",
+    "source_sha256": "6515945a8dbf713c5701830dc92f22c519cc20c333c2bed74dd975cd2afcbbf9",
+    "label_sha256": "e8bdcaf6bafcf485c806d210b85964b4c88ed7800037a6ef30d7240f088f0de6",
+    "label_shape": [
+      1161,
+      1161
+    ],
+    "result": {
+      "name": "9mm__E3__G0178_A0005.001_CC01_TF",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "no firing-pin drag detected",
+        "no aperture shear found"
+      ],
+      "primer_center_px": [
+        580.7432,
+        575.8071
+      ],
+      "primer_radius_px": 280.9171,
+      "primer_edge_inlier_frac": 0.9861,
+      "fp_core_center_px": [
+        600.8653,
+        599.4919
+      ],
+      "fp_core_radius_px": 82.3198,
+      "fp_max_depth_um": 706.8124,
+      "roughness_um": 2.5447,
+      "aperture_radius_px": 135.0,
+      "aperture_detected": true,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 10.6553,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 1.3897,
+        "primer_face": 14.3197
+      },
+      "qc_score": 1.0,
+      "needs_review": false,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 1.0,
+        "firing_pin": 1.0,
+        "crater_measured": 1.0,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 4.4947,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 0.0,
+        "crater_measured_fraction": 1.0,
+        "impression_circle_iou": 0.965,
+        "impression_fraction": 0.097,
+        "breech_face_fraction": 0.7441
+      },
+      "review_reasons": [],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 2.9555,
+        "anisotropy": 1.7338,
+        "width_mm": 1.936,
+        "angle_deg": 140.0,
+        "reason": "edges weak, not direction-selective (ring-like)",
+        "source": "flow-back ring"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.1026,
+        "oriented_ratio": 4.1073,
+        "energy_ratio": 0.9496,
+        "consistency": 0.3014,
+        "axis_deg": 174.7021,
+        "axis_error_deg": 12.0861,
+        "sector_deg": 186.7882,
+        "reason": "strongest candidate not rougher than the breech face"
+      },
+      "primer_diameter_mm": 4.495,
+      "fp_core_diameter_mm": 1.317,
+      "aperture_diameter_mm": 2.16
+    }
+  },
+  {
+    "file": "data/raw/9mm__E3__G0219_A0006.001_CC01_TF.x3p",
+    "source_sha256": "d5ab430a3ed31a1b7a21e5debfb9ce32872be1f13c5756557fcba53aefccbb85",
+    "label_sha256": "8b9518cff9ce3a4d73ddff4337f5bf9de83d9d83d5740594b275dd8e411916fb",
+    "label_shape": [
+      1189,
+      1189
+    ],
+    "result": {
+      "name": "9mm__E3__G0219_A0006.001_CC01_TF",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "no flow-back ring; aperture taken as 1.5 x firing-pin radius",
+        "no firing-pin drag detected",
+        "no aperture shear found"
+      ],
+      "primer_center_px": [
+        591.7513,
+        592.9842
+      ],
+      "primer_radius_px": 260.5624,
+      "primer_edge_inlier_frac": 1.0,
+      "fp_core_center_px": [
+        600.883,
+        553.2835
+      ],
+      "fp_core_radius_px": 103.4921,
+      "fp_max_depth_um": 760.4276,
+      "roughness_um": 2.9869,
+      "aperture_radius_px": 155.2381,
+      "aperture_detected": false,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 7.4742,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 2.1736,
+        "primer_face": 12.3192
+      },
+      "qc_score": 0.8,
+      "needs_review": false,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 1.0,
+        "firing_pin": 1.0,
+        "crater_measured": 1.0,
+        "aperture": 0.8
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 4.169,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 0.0,
+        "crater_measured_fraction": 1.0,
+        "impression_circle_iou": 0.9708,
+        "impression_fraction": 0.1764,
+        "breech_face_fraction": 0.6067
+      },
+      "review_reasons": [],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 1.729,
+        "anisotropy": 1.729,
+        "width_mm": 2.448,
+        "angle_deg": 30.0,
+        "reason": "edges weak, not direction-selective (ring-like), implausible width"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.1444,
+        "oriented_ratio": 9.9058,
+        "energy_ratio": 1.0914,
+        "consistency": 0.3457,
+        "axis_deg": 33.6851,
+        "axis_error_deg": 14.3005,
+        "sector_deg": 19.3847,
+        "reason": "strongest candidate not rougher than the breech face"
+      },
+      "primer_diameter_mm": 4.169,
+      "fp_core_diameter_mm": 1.656,
+      "aperture_diameter_mm": 2.484
+    }
+  },
+  {
+    "file": "data/raw/9mm__E3__G0257_A0006.001_CC01_TF.x3p",
+    "source_sha256": "3010f12a05038ec4af190cfd67cb0e41ced9c49377275acdc5294ed3818d8af9",
+    "label_sha256": "41deecf4a77d3fd03fc7e7487058c7744219b95bd3b5b2e704122b6bbed4eda9",
+    "label_shape": [
+      1198,
+      1198
+    ],
+    "result": {
+      "name": "9mm__E3__G0257_A0006.001_CC01_TF",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "no firing-pin drag detected",
+        "no aperture shear found"
+      ],
+      "primer_center_px": [
+        594.2733,
+        599.1833
+      ],
+      "primer_radius_px": 257.704,
+      "primer_edge_inlier_frac": 0.9972,
+      "fp_core_center_px": [
+        601.8615,
+        594.4548
+      ],
+      "fp_core_radius_px": 84.9252,
+      "fp_max_depth_um": 462.27,
+      "roughness_um": 2.4069,
+      "aperture_radius_px": 133.0,
+      "aperture_detected": true,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 8.4931,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 1.4833,
+        "primer_face": 12.0504
+      },
+      "qc_score": 1.0,
+      "needs_review": false,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 1.0,
+        "firing_pin": 1.0,
+        "crater_measured": 1.0,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 4.1233,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 0.0,
+        "crater_measured_fraction": 1.0,
+        "impression_circle_iou": 0.9646,
+        "impression_fraction": 0.1231,
+        "breech_face_fraction": 0.7048
+      },
+      "review_reasons": [],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 5.0604,
+        "anisotropy": 1.5509,
+        "width_mm": 1.944,
+        "angle_deg": 30.0,
+        "reason": "edges weak, not direction-selective (ring-like)",
+        "source": "flow-back ring"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.0636,
+        "oriented_ratio": 5.2901,
+        "energy_ratio": 1.0875,
+        "consistency": 0.3737,
+        "axis_deg": 56.5748,
+        "axis_error_deg": 15.1948,
+        "sector_deg": 41.3799,
+        "reason": "strongest candidate not rougher than the breech face"
+      },
+      "primer_diameter_mm": 4.123,
+      "fp_core_diameter_mm": 1.359,
+      "aperture_diameter_mm": 2.128
+    }
+  },
+  {
+    "file": "data/raw/9mm__E3__G0300_A0010.001_CC01_TF.x3p",
+    "source_sha256": "0926b718aa97e4220850add6b4fee6030c369c57d5380e5fa899df513582cf91",
+    "label_sha256": "779a921f683c6b6a9db7962a34236cb6424aebeee3a600cd7bb2b90e06401983",
+    "label_shape": [
+      1186,
+      1186
+    ],
+    "result": {
+      "name": "9mm__E3__G0300_A0010.001_CC01_TF",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "no flow-back ring; aperture taken as 1.5 x firing-pin radius",
+        "no aperture shear found"
+      ],
+      "primer_center_px": [
+        598.2816,
+        594.4317
+      ],
+      "primer_radius_px": 266.4085,
+      "primer_edge_inlier_frac": 0.8694,
+      "fp_core_center_px": [
+        584.7246,
+        662.3748
+      ],
+      "fp_core_radius_px": 104.2485,
+      "fp_max_depth_um": 707.4407,
+      "roughness_um": 2.6868,
+      "aperture_radius_px": 156.3728,
+      "aperture_detected": false,
+      "drag_detected": true,
+      "drag_tip_px": [
+        707.7655,
+        670.7375
+      ],
+      "drag_angle_deg": 3.8882,
+      "drag_length_mm": 0.9866,
+      "areas_mm2": {
+        "breech_face_impression": 7.9621,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0265,
+        "firing_pin_impression": 2.2276,
+        "primer_face": 12.8783
+      },
+      "qc_score": 0.7511,
+      "needs_review": false,
+      "qc_factors": {
+        "primer_edge": 0.939,
+        "primer_data": 1.0,
+        "firing_pin": 1.0,
+        "crater_measured": 1.0,
+        "aperture": 0.8
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 4.2625,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 0.0,
+        "crater_measured_fraction": 1.0,
+        "impression_circle_iou": 0.9047,
+        "impression_fraction": 0.175,
+        "breech_face_fraction": 0.6183
+      },
+      "review_reasons": [],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 3.4927,
+        "anisotropy": 3.2142,
+        "width_mm": 2.984,
+        "angle_deg": 114.0,
+        "reason": "edges weak, implausible width"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.0413,
+        "oriented_ratio": 3.2773,
+        "energy_ratio": 1.42,
+        "consistency": 0.3637,
+        "axis_deg": 22.1012,
+        "axis_error_deg": 18.213,
+        "sector_deg": 118.4895,
+        "reason": "strongest candidate too small"
+      },
+      "primer_diameter_mm": 4.263,
+      "fp_core_diameter_mm": 1.668,
+      "aperture_diameter_mm": 2.502
+    }
+  },
+  {
+    "file": "data/raw/9mm__Fadul__Fadul_1-1.x3p",
+    "source_sha256": "f4ad04474d48deaabcc1bcda463feea0f91c8464d0443014f22209bbbf46b279",
+    "label_sha256": "42d315725f080741d54edc1a346b7cf6dfafc41eece70297285c96e909ba32e1",
+    "label_shape": [
+      478,
+      481
+    ],
+    "result": {
+      "name": "9mm__Fadul__Fadul_1-1",
+      "um_per_px": 8.0,
+      "status": "ok",
+      "warnings": [
+        "firing-pin crater partly unmeasured (no data); outline from data gap",
+        "no firing-pin drag detected",
+        "no aperture shear found",
+        "Only 3% of the impression has measured height. Review crater geometry."
+      ],
+      "primer_center_px": [
+        239.8973,
+        239.3678
+      ],
+      "primer_radius_px": 223.7543,
+      "primer_edge_inlier_frac": 0.975,
+      "fp_core_center_px": [
+        197.3575,
+        242.5697
+      ],
+      "fp_core_radius_px": 96.6223,
+      "fp_max_depth_um": 74.8718,
+      "roughness_um": 0.936,
+      "aperture_radius_px": 151.0,
+      "aperture_detected": true,
+      "drag_detected": false,
+      "drag_tip_px": null,
+      "drag_angle_deg": null,
+      "drag_length_mm": null,
+      "areas_mm2": {
+        "breech_face_impression": 4.3156,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 1.9192,
+        "primer_face": 9.0845
+      },
+      "qc_score": 0.4387,
+      "needs_review": true,
+      "qc_factors": {
+        "primer_edge": 1.0,
+        "primer_data": 0.516,
+        "firing_pin": 1.0,
+        "crater_measured": 0.85,
+        "aperture": 1.0
+      },
+      "qc_observations": {
+        "primer_diameter_mm": 3.5801,
+        "primer_in_prior": 1.0,
+        "primer_at_data_edge": 1.0,
+        "crater_measured_fraction": 0.0283,
+        "impression_circle_iou": 0.9498,
+        "impression_fraction": 0.2113,
+        "breech_face_fraction": 0.475
+      },
+      "review_reasons": [
+        "low_qc_score",
+        "crater_unmeasured"
+      ],
+      "aperture_shape": "circle",
+      "aperture_evidence": {
+        "score": 14.4372,
+        "anisotropy": 1.802,
+        "width_mm": 1.664,
+        "angle_deg": 28.0,
+        "reason": "not direction-selective (ring-like)",
+        "source": "flow-back ring"
+      },
+      "shear_evidence": {
+        "accepted": false,
+        "area_mm2": 0.0281,
+        "oriented_ratio": 18.1556,
+        "energy_ratio": 5.954,
+        "consistency": 0.3464,
+        "axis_deg": 38.9372,
+        "axis_error_deg": 37.4662,
+        "sector_deg": 1.471,
+        "reason": "strongest candidate too small, striations not along the shear axis"
+      },
+      "primer_diameter_mm": 3.58,
+      "fp_core_diameter_mm": 1.546,
+      "aperture_diameter_mm": 2.416
+    }
+  }
+]
