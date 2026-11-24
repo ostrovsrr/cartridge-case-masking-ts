@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Primer Region Annotator</title>
+<style>
+:root {
+  --bg: #f4f4f2; --panel: #ffffff; --ink: #1d1d1f; --muted: #6b6b70; --line: #d9d9dc;
+  --accent: #2557d6; --warn-bg: #fff3c4; --warn-ink: #6a4b00; --ok: #1f8a3a; --canvas: #2b2b2e;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink);
+  font: 13px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+body { display: grid; grid-template-columns: 270px 1fr; grid-template-rows: auto auto 1fr auto; height: 100vh; }
+#side { grid-row: 1 / 5; background: var(--panel); border-right: 1px solid var(--line); display: flex;
+  flex-direction: column; min-height: 0; }
+#side h1 { font-size: 15px; margin: 12px 14px 4px; }
+#side .sub { color: var(--muted); margin: 0 14px 10px; font-size: 12px; }
+#side label.field { display: block; margin: 6px 14px; font-size: 12px; color: var(--muted); }
+#side input[type=text], #side textarea { width: 100%; padding: 5px 7px; border: 1px solid var(--line);
+  border-radius: 5px; font: inherit; color: var(--ink); background: #fff; }
+#side textarea { height: 56px; resize: vertical; }
+#scanlist { list-style: none; margin: 6px 0; padding: 0; overflow-y: auto; flex: 1; border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line); }
+#scanlist li { padding: 6px 14px; cursor: pointer; display: grid; grid-template-columns: 16px 1fr auto; gap: 6px;
+  align-items: center; border-bottom: 1px solid #eee; }
+#scanlist li:hover { background: #f0f3fb; }
+#scanlist li.active { background: #e3eafc; }
+#scanlist .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; }
+#scanlist .tm { color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #aaa; }
+.dot.started { border-color: var(--accent); background: linear-gradient(90deg, var(--accent) 50%, transparent 50%); }
+.dot.done { border-color: var(--ok); background: var(--ok); }
+.dot.exported { border-color: var(--ok); background: var(--ok); box-shadow: 0 0 0 2px #bfe6c8; }
+#side .btns { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 14px; }
+#progress { margin: 4px 14px 10px; color: var(--muted); font-size: 12px; }
+button { font: inherit; padding: 4px 9px; border: 1px solid var(--line); background: #fff; border-radius: 5px;
+  cursor: pointer; color: var(--ink); }
+button:hover { border-color: #aab; }
+button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+button:disabled { opacity: .45; cursor: default; }
+#tools { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; padding: 7px 10px;
+  background: var(--panel); border-bottom: 1px solid var(--line); }
+.grp { display: flex; align-items: center; gap: 4px; }
+.grp > span.lbl { color: var(--muted); font-size: 11px; margin-right: 2px; text-transform: uppercase; letter-spacing: .03em; }
+.cls { display: flex; align-items: center; gap: 5px; }
+.sw { width: 13px; height: 13px; border-radius: 3px; display: inline-block; border: 1px solid rgba(0,0,0,.25); }
+.vis { margin: 0 4px 0 0; }
+input[type=range] { width: 90px; vertical-align: middle; }
+#banner { padding: 6px 12px; font-weight: 600; border-bottom: 1px solid var(--line); }
+#banner.blank { background: #e9f1ff; color: #23407f; }
+#banner.prefilled { background: var(--warn-bg); color: var(--warn-ink); }
+#wrap { position: relative; background: var(--canvas); min-height: 0; overflow: hidden; }
+#view { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: crosshair; }
+#foot { background: var(--panel); border-top: 1px solid var(--line); padding: 5px 10px; font-size: 11.5px; color: var(--muted);
+  display: flex; gap: 18px; flex-wrap: wrap; }
+kbd { border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 3px; padding: 0 4px; font: 11px ui-monospace, monospace;
+  background: #fafafa; color: var(--ink); }
+#toast { position: fixed; right: 16px; bottom: 40px; background: #1d1d1f; color: #fff; padding: 8px 12px; border-radius: 6px;
+  opacity: 0; transition: opacity .25s; pointer-events: none; max-width: 380px; }
+#toast.show { opacity: .95; }
+@media (max-width: 760px) {
+  body { grid-template-columns: 1fr; grid-template-rows: auto auto auto 60vh auto; }
+  #side { grid-row: auto; max-height: 40vh; }
+}
+</style>
+</head>
+<body>
+<aside id="side">
+  <h1>Primer region annotator</h1>
+  <div class="sub">Draw the regions, then export the label PNG and JSON.</div>
+  <label class="field">Annotator name (required for export)
+    <input type="text" id="annotator" placeholder="e.g. j.smith" autocomplete="off">
+  </label>
+  <label class="field"><input type="checkbox" id="prefillNew"> Pre-fill newly opened scans from the algorithm
+    <br><span style="font-size:11px">Off by default: a blank start avoids anchoring on the algorithm.</span></label>
+  <ul id="scanlist"></ul>
+  <div id="progress"></div>
+  <label class="field">Notes for this scan
+    <textarea id="notes" placeholder="e.g. no aperture shear visible; crater edge unclear at 7 o'clock"></textarea>
+  </label>
+  <div class="btns">
+    <button id="btnDone" title="Mark this scan as finished (D)">Mark done</button>
+    <button id="btnExport" class="primary" title="Download label PNG + JSON for this scan">Export scan</button>
+    <button id="btnExportAll" title="Download every scan marked done">Export all done</button>
+  </div>
+</aside>
+
+<div id="tools">
+  <div class="grp" id="classBtns"><span class="lbl">Class</span></div>
+  <div class="grp"><span class="lbl">Tool</span>
+    <button data-tool="brush" title="Brush (B)">Brush</button>
+    <button data-tool="eraser" title="Eraser (E)">Eraser</button>
+    <button data-tool="lasso" title="Lasso fill: drag a closed outline (L); hold Shift on release to erase">Lasso</button>
+    <button data-tool="polygon" title="Polygon fill: click vertices, Enter/double-click to close (P); Shift+close erases">Polygon</button>
+    <button data-tool="pan" title="Pan (H, or hold Space, or right/middle drag)">Pan</button>
+  </div>
+  <div class="grp"><span class="lbl">Size</span>
+    <input type="range" id="size" min="1" max="200" value="14"><span id="sizeVal"></span></div>
+  <div class="grp"><span class="lbl">Opacity</span>
+    <input type="range" id="opacity" min="0" max="100" value="45"></div>
+  <div class="grp">
+    <label title="Brush/fill only paints background or the current class (O toggles outline view)">
+      <input type="checkbox" id="protect"> Protect other classes</label>
+    <label><input type="checkbox" id="outline"> Outlines only</label>
+  </div>
+  <div class="grp">
+    <button id="btnUndo" title="Undo (Z / Ctrl+Z)">Undo</button>
+    <button id="btnRedo" title="Redo (Y / Shift+Z)">Redo</button>
+    <button id="btnFit" title="Fit to window (F)">Fit</button>
+  </div>
+  <div class="grp">
+    <button id="btnPrefill" title="Replace the drawing with the algorithm's masks (recorded in the export)">Load algorithm pre-fill</button>
+    <button id="btnClear" title="Clear all labels on this scan">Clear</button>
+  </div>
+</div>
+<div id="banner"></div>
+<div id="wrap"><canvas id="view"></canvas></div>
+<div id="foot">
+  <span><kbd>1</kbd>-<kbd>4</kbd> class</span><span><kbd>B</kbd> brush <kbd>E</kbd> eraser <kbd>L</kbd> lasso <kbd>P</kbd> polygon <kbd>H</kbd> pan</span>
+  <span><kbd>[</kbd> <kbd>]</kbd> size</span><span><kbd>Z</kbd> undo <kbd>Y</kbd> redo</span>
+  <span><kbd>O</kbd> outlines <kbd>V</kbd> hide labels <kbd>F</kbd> fit</span><span><kbd>N</kbd>/<kbd>Shift+N</kbd> next/prev <kbd>D</kbd> done</span>
+  <span>wheel zoom &middot; Space/right-drag pan</span>
+  <span id="cursorInfo"></span>
+</div>
+<div id="toast"></div>
+
+<script id="scan-data" type="application/json">/*__SCAN_DATA__*/</script>
+<script>
+"use strict";
+// BEGIN pnglib -- pure helpers (also exercised from Node by the build checks)
+const CRC_TABLE = (() => {
+  const t = new Uint32Array(256);
+  for (let n = 0; n < 256; n++) {
+    let c = n;
+    for (let k = 0; k < 8; k++) c = (c & 1) ? (0xedb88320 ^ (c >>> 1)) : (c >>> 1);
+    t[n] = c >>> 0;
+  }
+  return t;
+})();
+function crc32(bytes, start, end) {
+  let c = 0xffffffff;
+  for (let i = start; i < end; i++) c = CRC_TABLE[(c ^ bytes[i]) & 0xff] ^ (c >>> 8);
+  return (c ^ 0xffffffff) >>> 0;
+}
+function adler32(bytes) {
+  let a = 1, b = 0;
+  for (let i = 0; i < bytes.length; i++) { a = (a + bytes[i]) % 65521; b = (b + a) % 65521; }
+  return ((b << 16) | a) >>> 0;
+}
+// zlib stream with stored (uncompressed) deflate blocks: fallback when CompressionStream is missing
+function zlibStored(raw) {
+  const nBlocks = Math.max(1, Math.ceil(raw.length / 65535));
+  const out = new Uint8Array(2 + raw.length + nBlocks * 5 + 4);
+  let o = 0; out[o++] = 0x78; out[o++] = 0x01;
+  for (let i = 0; i < nBlocks; i++) {
+    const s = i * 65535, len = Math.min(65535, raw.length - s);
+    out[o++] = (i === nBlocks - 1) ? 1 : 0;
+    out[o++] = len & 0xff; out[o++] = len >>> 8; out[o++] = (~len) & 0xff; out[o++] = ((~len) >>> 8) & 0xff;
+    out.set(raw.subarray(s, s + len), o); o += len;
+  }
+  const ad = adler32(raw);
+  out[o++] = ad >>> 24; out[o++] = (ad >>> 16) & 0xff; out[o++] = (ad >>> 8) & 0xff; out[o++] = ad & 0xff;
+  return out;
+}
+async function zlibCompress(raw) {
+  if (typeof CompressionStream === "function") {
+    try {
+      const cs = new CompressionStream("deflate");      // "deflate" = zlib format (RFC 1950)
+      const stream = new Blob([raw]).stream().pipeThrough(cs);
+      return new Uint8Array(await new Response(stream).arrayBuffer());
+    } catch (e) { /* fall through */ }
+  }
+  return zlibStored(raw);
+}
+// 8-bit greyscale PNG of a uint8 array (w*h, row-major): an exact label image
+async function encodeGreyPNG(data, w, h) {
+  const raw = new Uint8Array((w + 1) * h);
+  for (let y = 0; y < h; y++) { raw[y * (w + 1)] = 0; raw.set(data.subarray(y * w, (y + 1) * w), y * (w + 1) + 1); }
+  const idat = await zlibCompress(raw);
+  const chunks = [];
+  const chunk = (type, body) => {
+    const buf = new Uint8Array(12 + body.length);
+    const dv = new DataView(buf.buffer);
+    dv.setUint32(0, body.length);
+    for (let i = 0; i < 4; i++) buf[4 + i] = type.charCodeAt(i);
+    buf.set(body, 8);
+    dv.setUint32(8 + body.length, crc32(buf, 4, 8 + body.length));
+    chunks.push(buf);
+  };
+  const ihdr = new Uint8Array(13), dv = new DataView(ihdr.buffer);
+  dv.setUint32(0, w); dv.setUint32(4, h); ihdr[8] = 8; ihdr[9] = 0; ihdr[10] = 0; ihdr[11] = 0; ihdr[12] = 0;
+  chunk("IHDR", ihdr); chunk("IDAT", idat); chunk("IEND", new Uint8Array(0));
+  const sig = new Uint8Array([137, 80, 78, 71, 13, 10, 26, 10]);
+  let n = sig.length; for (const c of chunks) n += c.length;
+  const png = new Uint8Array(n); png.set(sig, 0);
+  let o = sig.length; for (const c of chunks) { png.set(c, o); o += c.length; }
+  return png;
+}
+function rleEncode(a) {
+  const out = [];
+  if (!a.length) return out;
+  let v = a[0], n = 1;
+  for (let i = 1; i < a.length; i++) {
+    if (a[i] === v) n++; else { out.push(v, n); v = a[i]; n = 1; }
+  }
+  out.push(v, n);
+  return out;
+}
+function rleDecode(runs, size) {
+  const a = new Uint8Array(size);
+  let o = 0;
+  for (let i = 0; i + 1 < runs.length; i += 2) {
+    const v = runs[i], n = runs[i + 1];
+    if (o + n > size) throw new Error("RLE longer than the image");
+    if (v) a.fill(v, o, o + n);
+    o += n;
+  }
+  if (o !== size) throw new Error("RLE shorter than the image");
+  return a;
+}
+// full-size label grid from the crop-box labels (zeros outside the box)
+function embedCrop(crop, cw, ch, H, W, y0, x0) {
+  const full = new Uint8Array(H * W);
+  for (let y = 0; y < ch; y++) full.set(crop.subarray(y * cw, (y + 1) * cw), (y0 + y) * W + x0);
+  return full;
+}
+// END pnglib
+
+const DATA = JSON.parse(document.getElementById("scan-data").textContent);
+const CLASSES = DATA.classes;                       // [{value, name, colour}]
+const SCANS = DATA.scans;
+const LS = "cartmask-annot-v1::" + (DATA.packet ? DATA.packet + "::" : "");
+const UNDO_MAX = 40;
+const COLOUR = {};
+for (const c of CLASSES) COLOUR[c.value] = [parseInt(c.colour.slice(1, 3), 16), parseInt(c.colour.slice(3, 5), 16),
+  parseInt(c.colour.slice(5, 7), 16)];
+const SHORT = {1: "Breech face", 2: "Aperture shear", 3: "Firing-pin shear", 4: "Firing-pin impression"};
+
+function lsGet(k) { try { return window.localStorage.getItem(LS + k); } catch (e) { return null; } }
+function lsSet(k, v) { try { window.localStorage.setItem(LS + k, v); return true; } catch (e) { return false; } }
+
+const $ = (id) => document.getElementById(id);
+const canvas = $("view"), ctx = canvas.getContext("2d");
+let dpr = window.devicePixelRatio || 1;
+
+const ui = {
+  cls: 1, tool: "brush", size: 14, opacity: 0.45, protect: false, outline: false, hidden: false,
+  visible: {1: true, 2: true, 3: true, 4: true},
+};
+let cur = null;           // current scan state
+const states = new Map(); // name -> state
+let view = {s: 1, ox: 0, oy: 0};
+let lastActivity = Date.now();
+let saveTimer = null;
+
+function scanKey(sc) { return sc.name + "::" + sc.label_shape.join("x") + "::" + sc.crop.join(","); }
+
+function getState(sc) {
+  if (states.has(sc.name)) return states.get(sc.name);
+  const cw = sc.crop[3] - sc.crop[2], ch = sc.crop[1] - sc.crop[0];
+  const st = {sc, cw, ch, labels: null, undo: [], redo: [], prefilled: false, prefillCleared: false, started: false,
+    done: false, exported: false, seconds: 0, notes: "", img: null, overlay: null, overlayData: null};
+  const saved = lsGet("scan::" + scanKey(sc));
+  if (saved) {
+    try {
+      const o = JSON.parse(saved);
+      st.labels = rleDecode(o.rle, cw * ch);
+      Object.assign(st, {prefilled: !!o.prefilled, prefillCleared: !!o.prefillCleared, started: true, done: !!o.done,
+        exported: !!o.exported, seconds: o.seconds || 0, notes: o.notes || ""});
+    } catch (e) { st.labels = null; }
+  }
+  states.set(sc.name, st);
+  return st;
+}
+
+function ensureLabels(st) {
+  if (st.labels) return;
+  st.labels = new Uint8Array(st.cw * st.ch);
+  st.started = true;
+  if ($("prefillNew").checked) loadPrefill(st, false);
+}
+
+function loadPrefill(st, ask) {
+  if (DATA.packet || !st.sc.prefill) return;
+  if (ask && st.labels && st.labels.some((v) => v) &&
+      !window.confirm("Replace your current drawing with the algorithm's masks?\nThe export will record this scan as pre-filled.")) return;
+  if (st.labels) pushUndo(st);
+  st.labels = rleDecode(st.sc.prefill, st.cw * st.ch);
+  st.prefilled = true; st.started = true;
+  afterEdit(st, true);
+}
+
+// ---------------------------------------------------------------- rendering
+function buildOverlay(st) {
+  st.overlay = document.createElement("canvas");
+  st.overlay.width = st.cw; st.overlay.height = st.ch;
+  st.overlayCtx = st.overlay.getContext("2d");
+  st.overlayData = st.overlayCtx.createImageData(st.cw, st.ch);
+  refreshOverlay(st, 0, 0, st.cw, st.ch);
+}
+function refreshOverlay(st, x0, y0, x1, y1) {
+  x0 = Math.max(0, Math.floor(x0) - 1); y0 = Math.max(0, Math.floor(y0) - 1);
+  x1 = Math.min(st.cw, Math.ceil(x1) + 1); y1 = Math.min(st.ch, Math.ceil(y1) + 1);
+  if (x1 <= x0 || y1 <= y0) return;
+  const L = st.labels, D = st.overlayData.data, W = st.cw, H = st.ch;
+  for (let y = y0; y < y1; y++) {
+    for (let x = x0; x < x1; x++) {
+      const i = y * W + x, v = L[i], p = i * 4;
+      let a = 0;
+      if (v && ui.visible[v] && !ui.hidden) {
+        a = 255;
+        if (ui.outline) {
+          const edge = x === 0 || y === 0 || x === W - 1 || y === H - 1 ||
+            L[i - 1] !== v || L[i + 1] !== v || L[i - W] !== v || L[i + W] !== v;
+          if (!edge) a = 0;
+        }
+      }
+      if (a) { const c = COLOUR[v]; D[p] = c[0]; D[p + 1] = c[1]; D[p + 2] = c[2]; }
+      D[p + 3] = a;
+    }
+  }
+  st.overlayCtx.putImageData(st.overlayData, 0, 0, x0, y0, x1 - x0, y1 - y0);
+}
+
+let drawQueued = false;
+function requestDraw() { if (!drawQueued) { drawQueued = true; requestAnimationFrame(draw); } }
+function draw() {
+  drawQueued = false;
+  const w = canvas.width, h = canvas.height;
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.fillStyle = "#2b2b2e"; ctx.fillRect(0, 0, w, h);
+  if (!cur) return;
+  ctx.setTransform(dpr * view.s, 0, 0, dpr * view.s, dpr * view.ox, dpr * view.oy);
+  ctx.imageSmoothingEnabled = view.s < 2;
+  if (cur.img && cur.img.complete) ctx.drawImage(cur.img, 0, 0, cur.cw, cur.ch);
+  if (cur.overlay) {
+    ctx.imageSmoothingEnabled = false;
+    ctx.globalAlpha = ui.outline ? Math.max(ui.opacity, 0.85) : ui.opacity;
+    ctx.drawImage(cur.overlay, 0, 0);
+    ctx.globalAlpha = 1;
+  }
+  // tool previews (screen space)
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  if (pointer.inside && (ui.tool === "brush" || ui.tool === "eraser") && !pan.active) {
+    const r = ui.size / 2 * view.s;
+    ctx.beginPath(); ctx.arc(pointer.sx, pointer.sy, Math.max(r, 1.5), 0, Math.PI * 2);
+    ctx.strokeStyle = "#000"; ctx.lineWidth = 3; ctx.stroke();
+    ctx.strokeStyle = ui.tool === "eraser" ? "#fff" : `rgb(${COLOUR[ui.cls].join(",")})`; ctx.lineWidth = 1.5; ctx.stroke();
+  }
+  const pts = poly.points;
+  if (pts.length) {
+    ctx.beginPath();
+    pts.forEach((p, i) => { const s = toScreen(p[0], p[1]); i ? ctx.lineTo(s[0], s[1]) : ctx.moveTo(s[0], s[1]); });
+    if (ui.tool === "polygon" && pointer.inside) ctx.lineTo(pointer.sx, pointer.sy);
+    ctx.strokeStyle = "#000"; ctx.lineWidth = 3; ctx.stroke();
+    ctx.strokeStyle = `rgb(${COLOUR[ui.cls].join(",")})`; ctx.lineWidth = 1.5; ctx.stroke();
+    if (ui.tool === "polygon") {
+      const s = toScreen(pts[0][0], pts[0][1]);
+      ctx.beginPath(); ctx.arc(s[0], s[1], 5, 0, Math.PI * 2); ctx.fillStyle = "#fff"; ctx.fill();
+    }
+  }
+}
+
+function resize() {
+  dpr = window.devicePixelRatio || 1;
+  const r = canvas.getBoundingClientRect();
+  canvas.width = Math.max(1, Math.round(r.width * dpr));
+  canvas.height = Math.max(1, Math.round(r.height * dpr));
+  requestDraw();
+}
+function fit() {
+  if (!cur) return;
+  const r = canvas.getBoundingClientRect();
+  const s = Math.min(r.width / cur.cw, r.height / cur.ch) * 0.96;
+  view = {s, ox: (r.width - cur.cw * s) / 2, oy: (r.height - cur.ch * s) / 2};
+  requestDraw();
+}
+function toLabel(sx, sy) { return [(sx - view.ox) / view.s, (sy - view.oy) / view.s]; }
+function toScreen(x, y) { return [x * view.s + view.ox, y * view.s + view.oy]; }
+
+// ---------------------------------------------------------------- editing
+function pushUndo(st) {
+  st.undo.push(st.labels.slice());
+  if (st.undo.length > UNDO_MAX) st.undo.shift();
+  st.redo.length = 0;
+}
+function undo() {
+  if (!cur || !cur.undo.length) return;
+  cur.redo.push(cur.labels); cur.labels = cur.undo.pop(); afterEdit(cur, true);
+}
+function redo() {
+  if (!cur || !cur.redo.length) return;
+  cur.undo.push(cur.labels); cur.labels = cur.redo.pop(); afterEdit(cur, true);
+}
+function canPaint(old, value) {
+  if (!ui.protect) return true;
+  return value === 0 ? old === ui.cls : (old === 0 || old === value);
+}
+function stamp(st, cx, cy, value) {
+  const r = Math.max(0.5, ui.size / 2), r2 = r * r, L = st.labels, W = st.cw;
+  const y0 = Math.max(0, Math.floor(cy - r)), y1 = Math.min(st.ch - 1, Math.ceil(cy + r));
+  const x0 = Math.max(0, Math.floor(cx - r)), x1 = Math.min(st.cw - 1, Math.ceil(cx + r));
+  for (let y = y0; y <= y1; y++) {
+    const dy = y + 0.5 - cy;
+    for (let x = x0; x <= x1; x++) {
+      const dx = x + 0.5 - cx;
+      if (dx * dx + dy * dy <= r2) { const i = y * W + x; if (canPaint(L[i], value)) L[i] = value; }
+    }
+  }
+  return [x0, y0, x1 + 1, y1 + 1];
+}
+function strokeTo(st, a, b, value) {
+  const d = Math.hypot(b[0] - a[0], b[1] - a[1]);
+  const step = Math.max(0.5, ui.size / 4);
+  const n = Math.max(1, Math.ceil(d / step));
+  let bx0 = Infinity, by0 = Infinity, bx1 = -Infinity, by1 = -Infinity;
+  for (let i = 1; i <= n; i++) {
+    const t = i / n, r = stamp(st, a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, value);
+    bx0 = Math.min(bx0, r[0]); by0 = Math.min(by0, r[1]); bx1 = Math.max(bx1, r[2]); by1 = Math.max(by1, r[3]);
+  }
+  refreshOverlay(st, bx0, by0, bx1, by1);
+}
+function fillPolygon(st, pts, value) {
+  if (pts.length < 3) return;
+  let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+  for (const p of pts) { x0 = Math.min(x0, p[0]); y0 = Math.min(y0, p[1]); x1 = Math.max(x1, p[0]); y1 = Math.max(y1, p[1]); }
+  x0 = Math.max(0, Math.floor(x0)); y0 = Math.max(0, Math.floor(y0));
+  x1 = Math.min(st.cw, Math.ceil(x1)); y1 = Math.min(st.ch, Math.ceil(y1));
+  const w = x1 - x0, h = y1 - y0;
+  if (w <= 0 || h <= 0) return;
+  const c = document.createElement("canvas"); c.width = w; c.height = h;
+  const g = c.getContext("2d");
+  g.beginPath(); pts.forEach((p, i) => i ? g.lineTo(p[0] - x0, p[1] - y0) : g.moveTo(p[0] - x0, p[1] - y0));
+  g.closePath(); g.fillStyle = "#fff"; g.fill();
+  const A = g.getImageData(0, 0, w, h).data, L = st.labels;
+  pushUndo(st);
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+    if (A[(y * w + x) * 4 + 3] >= 128) { const i = (y + y0) * st.cw + x + x0; if (canPaint(L[i], value)) L[i] = value; }
+  }
+  refreshOverlay(st, x0, y0, x1, y1);
+  afterEdit(st, false);
+}
+function afterEdit(st, full) {
+  st.started = true;
+  if (st.done) { st.done = false; toast("Edited after 'done' - mark it done again when finished."); }
+  st.exported = false;
+  if (full && st.overlay) refreshOverlay(st, 0, 0, st.cw, st.ch);
+  scheduleSave(st);
+  renderList(); updateBanner(); requestDraw();
+}
+
+// ---------------------------------------------------------------- persistence
+function scheduleSave(st) {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => saveState(st), 400);
+}
+function saveState(st) {
+  if (!st || !st.labels) return;
+  const o = {rle: rleEncode(st.labels), prefilled: st.prefilled, prefillCleared: st.prefillCleared, done: st.done,
+    exported: st.exported, seconds: Math.round(st.seconds), notes: st.notes, updated: new Date().toISOString()};
+  if (!lsSet("scan::" + scanKey(st.sc), JSON.stringify(o)) && !saveState.warned) {
+    saveState.warned = true;
+    toast("Autosave unavailable in this browser - export each scan when finished.");
+  }
+}
+
+// ---------------------------------------------------------------- scan list / banner
+function fmtTime(s) { s = Math.round(s); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); }
+function renderList() {
+  const ul = $("scanlist"); ul.innerHTML = "";
+  let done = 0, total = 0;
+  SCANS.forEach((sc, i) => {
+    const st = states.get(sc.name);
+    const li = document.createElement("li");
+    if (cur && cur.sc === sc) li.className = "active";
+    const dot = document.createElement("span");
+    let cls = "dot", title = "not started";
+    if (st && st.exported) { cls += " exported"; title = "exported"; }
+    else if (st && st.done) { cls += " done"; title = "done (not exported yet)"; }
+    else if (st && st.started) { cls += " started"; title = "in progress"; }
+    if (st && (st.done || st.exported)) done++;
+    dot.className = cls; dot.title = title;
+    const nm = document.createElement("span"); nm.className = "nm"; nm.textContent = (i + 1) + ". " + sc.name; nm.title = sc.name;
+    const tm = document.createElement("span"); tm.className = "tm";
+    tm.textContent = st ? fmtTime(st.seconds) + (st.prefilled ? " P" : "") : "";
+    if (st && st.prefilled) tm.title = "pre-filled from the algorithm";
+    total += st ? st.seconds : 0;
+    li.append(dot, nm, tm);
+    li.onclick = () => openScan(i);
+    ul.appendChild(li);
+  });
+  $("progress").textContent = `${done} of ${SCANS.length} done · ${fmtTime(total)} spent · target about 5 min per scan`;
+  $("btnDone").textContent = cur && cur.done ? "Done ✓" : "Mark done";
+  $("btnUndo").disabled = !cur || !cur.undo.length;
+  $("btnRedo").disabled = !cur || !cur.redo.length;
+}
+function updateBanner() {
+  const b = $("banner");
+  if (!cur) { b.textContent = ""; return; }
+  const sc = cur.sc;
+  const info = ` — ${sc.name} · ${sc.um_per_px} µm/px · label grid ${sc.label_shape[1]}×${sc.label_shape[0]}`;
+  if (cur.prefilled) {
+    b.className = "prefilled";
+    b.textContent = "Pre-filled from the algorithm — correct it" +
+      (cur.prefillCleared ? " (cleared since, still recorded as pre-filled)" : "") + info;
+  } else {
+    b.className = "blank";
+    b.textContent = "Blank start — draw each region independently" + info;
+  }
+}
+function openScan(i) {
+  if (cur) { cur.notes = $("notes").value; saveState(cur); }
+  poly.points = [];
+  const sc = SCANS[(i + SCANS.length) % SCANS.length];
+  const st = getState(sc);
+  ensureLabels(st);
+  if (!st.img) { st.img = new Image(); st.img.onload = requestDraw; st.img.src = sc.img; }
+  if (!st.overlay) buildOverlay(st);
+  cur = st;
+  $("notes").value = st.notes;
+  lsSet("last", sc.name);
+  renderList(); updateBanner(); fit(); updateSize();
+}
+function curIndex() { return cur ? SCANS.indexOf(cur.sc) : 0; }
+
+// ---------------------------------------------------------------- export
+function download(name, blob) {
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+}
+async function exportScan(st, quiet) {
+  const name = $("annotator").value.trim();
+  if (!name) { $("annotator").focus(); toast("Enter your annotator name first."); return false; }
+  if (!st.labels) { toast("Nothing drawn on " + st.sc.name); return false; }
+  st.notes = st === cur ? $("notes").value : st.notes;
+  const sc = st.sc, H = sc.label_shape[0], W = sc.label_shape[1];
+  const full = embedCrop(st.labels, st.cw, st.ch, H, W, sc.crop[0], sc.crop[2]);
+  const png = await encodeGreyPNG(full, W, H);
+  const counts = {}; for (const c of CLASSES) counts[c.name] = 0;
+  const byVal = {}; for (const c of CLASSES) byVal[c.value] = c.name;
+  for (let i = 0; i < st.labels.length; i++) if (st.labels[i]) counts[byVal[st.labels[i]]]++;
+  const meta = {
+    scan: sc.name, source: sc.source, annotator: name, timestamp: new Date().toISOString(),
+    packet: DATA.packet || null,
+    prefilled: st.prefilled, prefill_cleared_afterwards: st.prefillCleared,
+    start: st.prefilled ? "prefilled from the algorithm" : "blank",
+    done: st.done, seconds_spent: Math.round(st.seconds), notes: st.notes,
+    label_shape: [H, W], um_per_px: sc.um_per_px,
+    crop_box: {y0: sc.crop[0], y1: sc.crop[1], x0: sc.crop[2], x1: sc.crop[3]},
+    label_values: Object.fromEntries(CLASSES.map((c) => [String(c.value), c.name])),
+    pixel_counts: counts, tool: "cartmask annotator v" + DATA.version, annotator_built: DATA.built,
+    user_agent: navigator.userAgent,
+  };
+  const stem = DATA.packet ? sc.name + "__" + meta.timestamp.replace(/[^0-9]/g, "") : sc.name;
+  download(stem + "__labels.png", new Blob([png], {type: "image/png"}));
+  await new Promise((r) => setTimeout(r, 350));
+  download(stem + "__labels.json", new Blob([JSON.stringify(meta, null, 2)], {type: "application/json"}));
+  st.exported = true; saveState(st); renderList();
+  if (!quiet) toast("Exported " + stem + "__labels.png + .json to your Downloads folder.");
+  return true;
+}
+async function exportAll() {
+  const list = SCANS.map((sc) => states.get(sc.name) || getState(sc)).filter((st) => st.done && st.labels);
+  if (!list.length) { toast("No scans are marked done yet."); return; }
+  let n = 0;
+  for (const st of list) { if (!(await exportScan(st, true))) return; n++; await new Promise((r) => setTimeout(r, 400)); }
+  toast(`Exported ${n} scans (2 files each). Allow multiple downloads if the browser asks.`);
+}
+
+// ---------------------------------------------------------------- input
+const pointer = {sx: 0, sy: 0, inside: false};
+const pan = {active: false, space: false, x: 0, y: 0, ox: 0, oy: 0};
+const poly = {points: []};
+let painting = null;    // {last:[x,y], value}
+
+canvas.addEventListener("contextmenu", (e) => e.preventDefault());
+canvas.addEventListener("pointerenter", () => { pointer.inside = true; requestDraw(); });
+canvas.addEventListener("pointerleave", () => { pointer.inside = false; requestDraw(); });
+canvas.addEventListener("pointerdown", (e) => {
+  if (!cur) return;
+  lastActivity = Date.now();
+  canvas.setPointerCapture(e.pointerId);
+  const r = canvas.getBoundingClientRect(); const sx = e.clientX - r.left, sy = e.clientY - r.top;
+  if (e.button === 1 || e.button === 2 || pan.space || ui.tool === "pan") {
+    Object.assign(pan, {active: true, x: sx, y: sy, ox: view.ox, oy: view.oy}); canvas.style.cursor = "grabbing"; return;
+  }
+  if (e.button !== 0) return;
+  const p = toLabel(sx, sy);
+  if (ui.tool === "brush" || ui.tool === "eraser") {
+    pushUndo(cur);
+    const value = ui.tool === "eraser" ? 0 : ui.cls;
+    painting = {last: p, value};
+    const b = stamp(cur, p[0], p[1], value); refreshOverlay(cur, ...b); requestDraw();
+  } else if (ui.tool === "lasso") {
+    poly.points = [p]; painting = {lasso: true};
+  } else if (ui.tool === "polygon") {
+    if (poly.points.length >= 3) {
+      const f = toScreen(poly.points[0][0], poly.points[0][1]);
+      if (Math.hypot(f[0] - sx, f[1] - sy) < 9) { closePolygon(e.shiftKey); return; }
+    }
+    poly.points.push(p); requestDraw();
+  }
+});
+canvas.addEventListener("pointermove", (e) => {
+  const r = canvas.getBoundingClientRect(); const sx = e.clientX - r.left, sy = e.clientY - r.top;
+  pointer.sx = sx; pointer.sy = sy; lastActivity = Date.now();
+  if (pan.active) { view.ox = pan.ox + sx - pan.x; view.oy = pan.oy + sy - pan.y; requestDraw(); return; }
+  if (cur) {
+    const p = toLabel(sx, sy), x = Math.floor(p[0]), y = Math.floor(p[1]);
+    if (x >= 0 && y >= 0 && x < cur.cw && y < cur.ch) {
+      const v = cur.labels[y * cur.cw + x], um = cur.sc.um_per_px;
+      $("cursorInfo").textContent = `x ${((x + cur.sc.crop[2]) * um / 1000).toFixed(2)} mm, y ${((y + cur.sc.crop[0]) * um / 1000).toFixed(2)} mm · ${v ? SHORT[v] : "background"}`;
+    } else $("cursorInfo").textContent = "";
+    if (painting && painting.value !== undefined) {
+      const evs = e.getCoalescedEvents ? e.getCoalescedEvents() : [e];
+      for (const ev of evs.length ? evs : [e]) {
+        const q = toLabel(ev.clientX - r.left, ev.clientY - r.top);
+        strokeTo(cur, painting.last, q, painting.value); painting.last = q;
+      }
+    } else if (painting && painting.lasso) {
+      const last = poly.points[poly.points.length - 1];
+      if (Math.hypot(p[0] - last[0], p[1] - last[1]) * view.s > 2) poly.points.push(p);
+    }
+  }
+  requestDraw();
+});
+function endPointer(e) {
+  if (pan.active) { pan.active = false; canvas.style.cursor = ""; return; }
+  if (!painting || !cur) return;
+  if (painting.lasso) {
+    const pts = poly.points; poly.points = [];
+    fillPolygon(cur, pts, e.shiftKey ? 0 : ui.cls);
+  } else afterEdit(cur, false);
+  painting = null; requestDraw();
+}
+canvas.addEventListener("pointerup", endPointer);
+canvas.addEventListener("pointercancel", endPointer);
+canvas.addEventListener("dblclick", (e) => { if (ui.tool === "polygon") closePolygon(e.shiftKey); });
+function closePolygon(erase) {
+  const pts = poly.points;
+  // a double-click also delivered two clicks: drop duplicate trailing vertices
+  while (pts.length > 1 && Math.hypot(pts[pts.length - 1][0] - pts[pts.length - 2][0],
+    pts[pts.length - 1][1] - pts[pts.length - 2][1]) * view.s < 3) pts.pop();
+  poly.points = [];
+  if (pts.length >= 3) fillPolygon(cur, pts, erase ? 0 : ui.cls);
+  requestDraw();
+}
+canvas.addEventListener("wheel", (e) => {
+  e.preventDefault();
+  const r = canvas.getBoundingClientRect(); const sx = e.clientX - r.left, sy = e.clientY - r.top;
+  zoomAt(sx, sy, Math.exp(-e.deltaY * (e.deltaMode === 1 ? 0.05 : 0.0015)));
+}, {passive: false});
+function zoomAt(sx, sy, f) {
+  const p = toLabel(sx, sy);
+  view.s = Math.min(40, Math.max(0.1, view.s * f));
+  view.ox = sx - p[0] * view.s; view.oy = sy - p[1] * view.s;
+  requestDraw();
+}
+
+function setTool(t) {
+  ui.tool = t; poly.points = [];
+  document.querySelectorAll("[data-tool]").forEach((b) => b.classList.toggle("on", b.dataset.tool === t));
+  canvas.style.cursor = t === "pan" ? "grab" : "crosshair";
+  requestDraw();
+}
+function setClass(v) {
+  ui.cls = v;
+  document.querySelectorAll(".clsbtn").forEach((b) => b.classList.toggle("on", +b.dataset.v === v));
+  if (ui.tool === "eraser" || ui.tool === "pan") setTool("brush");
+  requestDraw();
+}
+function updateSize() {
+  $("size").value = ui.size;
+  const um = cur ? cur.sc.um_per_px : DATA.work_um_per_px;
+  $("sizeVal").textContent = `${ui.size} px (${Math.round(ui.size * um)} µm)`;
+  requestDraw();
+}
+function refreshAll() { if (cur) refreshOverlay(cur, 0, 0, cur.cw, cur.ch); requestDraw(); }
+
+document.addEventListener("keydown", (e) => {
+  const tag = (e.target && e.target.tagName) || "";
+  if (tag === "INPUT" && e.target.type === "text" || tag === "TEXTAREA") return;
+  lastActivity = Date.now();
+  const k = e.key;
+  if (k === " ") { pan.space = true; e.preventDefault(); return; }
+  if ((e.ctrlKey || e.metaKey) && (k === "z" || k === "Z")) { e.preventDefault(); e.shiftKey ? redo() : undo(); return; }
+  if ((e.ctrlKey || e.metaKey) && (k === "y" || k === "Y")) { e.preventDefault(); redo(); return; }
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  if (k >= "1" && k <= "4") setClass(+k);
+  else if (k === "b" || k === "B") setTool("brush");
+  else if (k === "e" || k === "E") setTool("eraser");
+  else if (k === "l" || k === "L") setTool("lasso");
+  else if (k === "p" || k === "P") setTool("polygon");
+  else if (k === "h" || k === "H") setTool("pan");
+  else if (k === "[") { ui.size = Math.max(1, ui.size > 10 ? Math.round(ui.size / 1.25) : ui.size - 1); updateSize(); }
+  else if (k === "]") { ui.size = Math.min(200, ui.size >= 8 ? Math.round(ui.size * 1.25) : ui.size + 1); updateSize(); }
+  else if (k === "z") undo();
+  else if (k === "Z" || k === "y" || k === "Y") redo();
+  else if (k === "f" || k === "F" || k === "0") fit();
+  else if (k === "+" || k === "=") { const r = canvas.getBoundingClientRect(); zoomAt(r.width / 2, r.height / 2, 1.25); }
+  else if (k === "-") { const r = canvas.getBoundingClientRect(); zoomAt(r.width / 2, r.height / 2, 0.8); }
+  else if (k === "o" || k === "O") { $("outline").checked = ui.outline = !ui.outline; refreshAll(); }
+  else if (k === "v" || k === "V") { ui.hidden = !ui.hidden; refreshAll(); }
+  else if (k === "n") openScan(curIndex() + 1);
+  else if (k === "N") openScan(curIndex() - 1);
+  else if (k === "d" || k === "D") toggleDone();
+  else if (k === "Enter" && ui.tool === "polygon") closePolygon(e.shiftKey);
+  else if (k === "Escape") { poly.points = []; painting = null; requestDraw(); }
+  else if (k === "Backspace" && poly.points.length) { poly.points.pop(); requestDraw(); }
+  else return;
+  e.preventDefault();
+});
+document.addEventListener("keyup", (e) => { if (e.key === " ") pan.space = false; });
+
+function toggleDone() {
+  if (!cur) return;
+  cur.done = !cur.done; saveState(cur); renderList();
+  if (cur.done) toast("Marked done. Export now, or use 'Export all done' at the end.");
+}
+let toastTimer = null;
+function toast(msg) {
+  const t = $("toast"); t.textContent = msg; t.classList.add("show");
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove("show"), 3200);
+}
+
+// ---------------------------------------------------------------- setup
+(function init() {
+  const cb = $("classBtns");
+  for (const c of CLASSES) {
+    ui.visible[c.value] = true;
+    const wrap = document.createElement("span"); wrap.className = "cls";
+    const vis = document.createElement("input"); vis.type = "checkbox"; vis.checked = true; vis.className = "vis";
+    vis.title = "show/hide this class";
+    vis.onchange = () => { ui.visible[c.value] = vis.checked; refreshAll(); };
+    const b = document.createElement("button"); b.className = "clsbtn"; b.dataset.v = c.value;
+    b.title = `${c.name} (${c.value})`;
+    b.innerHTML = `<span class="sw" style="background:${c.colour}"></span> ${c.value} ${SHORT[c.value] || c.name}`;
+    b.onclick = () => setClass(c.value);
+    wrap.append(vis, b); cb.appendChild(wrap);
+  }
+  document.querySelectorAll("[data-tool]").forEach((b) => b.onclick = () => setTool(b.dataset.tool));
+  $("size").oninput = (e) => { ui.size = +e.target.value; updateSize(); };
+  $("opacity").oninput = (e) => { ui.opacity = e.target.value / 100; requestDraw(); };
+  $("protect").onchange = (e) => { ui.protect = e.target.checked; };
+  $("outline").onchange = (e) => { ui.outline = e.target.checked; refreshAll(); };
+  $("btnUndo").onclick = undo; $("btnRedo").onclick = redo; $("btnFit").onclick = fit;
+  $("btnPrefill").onclick = () => cur && loadPrefill(cur, true);
+  $("btnClear").onclick = () => {
+    if (!cur || !window.confirm("Clear every label on this scan? (Undo can bring it back.)")) return;
+    pushUndo(cur); cur.labels = new Uint8Array(cur.cw * cur.ch);
+    if (cur.prefilled) cur.prefillCleared = true;
+    afterEdit(cur, true);
+  };
+  $("btnDone").onclick = toggleDone;
+  $("btnExport").onclick = () => cur && exportScan(cur, false);
+  $("btnExportAll").onclick = exportAll;
+  $("notes").oninput = () => { if (cur) { cur.notes = $("notes").value; scheduleSave(cur); } };
+  $("annotator").value = lsGet("annotator") || "";
+  $("annotator").oninput = () => lsSet("annotator", $("annotator").value.trim());
+  $("prefillNew").checked = lsGet("prefillNew") === "1";
+  if (DATA.packet) {
+    $("prefillNew").checked = false;
+    $("prefillNew").closest("label").style.display = "none";
+    $("btnPrefill").style.display = "none";
+  }
+  $("prefillNew").onchange = (e) => lsSet("prefillNew", e.target.checked ? "1" : "0");
+  window.addEventListener("resize", () => { resize(); });
+  window.addEventListener("beforeunload", () => { if (cur) { cur.notes = $("notes").value; saveState(cur); } });
+  // time spent: counts while the page is visible and the user was active in the last minute
+  setInterval(() => {
+    if (cur && document.visibilityState === "visible" && Date.now() - lastActivity < 60000) {
+      cur.seconds += 1;
+      if (Math.round(cur.seconds) % 15 === 0) { saveState(cur); renderList(); }
+    }
+  }, 1000);
+  for (const sc of SCANS) if (lsGet("scan::" + scanKey(sc))) getState(sc);
+  resize(); setTool("brush"); setClass(1); updateSize();
+  if (!SCANS.length) { $("banner").textContent = "No scans embedded."; return; }
+  const last = lsGet("last"), i = SCANS.findIndex((s) => s.name === last);
+  openScan(i >= 0 ? i : 0);
+})();
+</script>
+</body>
+</html>
