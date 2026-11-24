@@ -1,0 +1,3 @@
+# The audit baselines are compared byte for byte with fresh runs: keep LF on every platform.
+samples/validation/*.json text eol=lf
+samples/validation/*.csv text eol=lf

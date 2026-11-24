@@ -1,0 +1,45 @@
+{
+  "name": "cartmask-ts",
+  "version": "1.0.0",
+  "description": "Automatic masking of primer regions on 3D cartridge-case head scans (TypeScript port of cartmask).",
+  "type": "module",
+  "license": "UNLICENSED",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "cartmask": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "cli": "tsx src/cli.ts",
+    "demo": "tsx src/demo.ts",
+    "parity:export": "python reference/export_labels.py --expanded",
+    "parity:report": "tsx scripts/parity-report.ts",
+    "audit": "tsx scripts/audit-masks.ts --out outputs/audit/baseline-3d.json --csv outputs/audit/current-3d.csv --compare-with samples/validation/baseline-3d.json",
+    "audit:expanded": "tsx scripts/audit-masks.ts --manifest docs/expanded-scan-manifest.csv --out outputs/audit/expanded-3d.json --csv outputs/audit/expanded-3d.csv",
+    "revisions": "tsx scripts/compare-revisions.ts",
+    "gallery": "tsx scripts/failure-gallery.ts",
+    "report": "tsx scripts/build-report.ts",
+    "evidence": "tsx scripts/rebuild-evidence.ts",
+    "evaluate": "tsx src/evaluate.ts",
+    "annotator": "tsx scripts/build-annotator.ts",
+    "parity:evaluate": "vitest run tests/evaluate.test.ts",
+    "parity:export-masks": "python reference/export_masks.py",
+    "fetch": "tsx scripts/fetch-nbtrd.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65",
+    "fast-xml-parser": "^4.5.1",
+    "fflate": "^0.8.2"
+  }
+}
