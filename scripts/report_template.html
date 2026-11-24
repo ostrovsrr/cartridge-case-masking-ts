@@ -1,0 +1,361 @@
+<title>Primer Mask Review</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: inspection bench. Scan rail on the left, the magnified primer in the middle,
+   measurements on the right; evidence that the masks are useful below. */
+:root {
+  --bg: #f3f4f6; --panel: #ffffff; --ink: #1b2027; --muted: #5d6673; --line: #d9dde3;
+  --brass: #9a7433; --brass-soft: #f1e6cf; --ok: #2f7d4f; --warn: #a3621a; --bad: #b3261e;
+  --stage: #0f1216;
+  --display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --body: "Inter", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --bf: #dc2828; --as: #3cc83c; --fs: #9646c8; --fi: #5adce6; --arrow: #1450ff;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #121519; --panel: #1a1e24; --ink: #e6e8eb; --muted: #9aa3ae; --line: #2c323a;
+  --brass: #d1a85e; --brass-soft: #3a2f1c; --ok: #5bbd83; --warn: #e0a050; --bad: #ef6b62;
+  --stage: #07090b; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #121519; --panel: #1a1e24; --ink: #e6e8eb; --muted: #9aa3ae; --line: #2c323a;
+  --brass: #d1a85e; --brass-soft: #3a2f1c; --ok: #5bbd83; --warn: #e0a050; --bad: #ef6b62;
+  --stage: #07090b; color-scheme: dark }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 24px 48px; }
+.wrap { max-width: 1240px; margin: 0 auto; display: grid; gap: 28px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+h2 { font-size: 1.35rem; }
+h3 { font-size: 1rem; }
+p { margin: 0; max-width: 68ch; }
+.eyebrow { font-family: var(--mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
+header { display: grid; gap: 10px; }
+.lede { color: var(--muted); }
+.stats { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 8px; }
+.stat b { display: block; font-family: var(--display); font-size: 1.6rem; font-variant-numeric: tabular-nums; }
+.stat span { color: var(--muted); font-size: .82rem; }
+.bench { display: grid; grid-template-columns: 250px minmax(0, 1fr) 290px; gap: 18px; align-items: start; }
+@media (max-width: 1000px) { .bench { grid-template-columns: 1fr; } }
+.rail { display: grid; gap: 6px; max-height: 640px; overflow-y: auto; padding-right: 4px; }
+@media (max-width: 1000px) { .rail { max-height: none; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); } }
+.scan { all: unset; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; padding: 9px 11px;
+  border: 1px solid var(--line); border-radius: 8px; background: var(--panel); font-size: .84rem; }
+.scan:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.scan[aria-current="true"] { border-color: var(--brass); background: var(--brass-soft); }
+.scan .nm { font-family: var(--mono); font-size: .76rem; overflow-wrap: anywhere; min-width: 0; }
+.scan .cal { color: var(--muted); font-size: .74rem; }
+.pill { font-family: var(--mono); font-size: .68rem; padding: 1px 7px; border-radius: 99px; border: 1px solid currentColor; align-self: start; white-space: nowrap; }
+.pill.auto { color: var(--ok); } .pill.review { color: var(--warn); } .pill.skip { color: var(--muted); }
+.stage-wrap { display: grid; gap: 10px; min-width: 0; }
+.stage { position: relative; width: 100%; max-width: 640px; aspect-ratio: 1; background: var(--stage); border-radius: 10px; overflow: hidden; margin: 0 auto; }
+.rot { position: absolute; inset: 0; transition: transform .5s ease; }
+@media (prefers-reduced-motion: reduce) { .rot { transition: none; } }
+.rot img, .rot svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.empty { position: absolute; inset: 0; display: grid; place-items: center; color: #c9ced6; padding: 24px; text-align: center; font-size: .9rem; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; justify-content: center; font-size: .84rem; }
+.toggle { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.controls input[type=range] { width: 110px; accent-color: var(--brass); }
+.btn { font: inherit; font-size: .82rem; padding: 5px 11px; border-radius: 7px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); cursor: pointer; }
+.btn[aria-pressed="true"] { border-color: var(--brass); background: var(--brass-soft); }
+.btn:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 12px; min-width: 0; }
+dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; margin: 0; font-size: .86rem; }
+dt { color: var(--muted); }
+dd { margin: 0; font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; }
+.qcbar { height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+.qcbar i { display: block; height: 100%; background: var(--ok); }
+.warn { font-size: .8rem; color: var(--muted); display: grid; gap: 4px; padding: 0; margin: 0; list-style: none; }
+.warn li::before { content: "– "; color: var(--warn); }
+.evidence { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; }
+@media (max-width: 900px) { .evidence { grid-template-columns: 1fr; } }
+.chart { width: 100%; height: auto; }
+.chart text { fill: var(--muted); font-family: var(--mono); font-size: 11px; }
+.chart .ttl { fill: var(--ink); font-family: var(--body); font-size: 12.5px; font-weight: 600; }
+.legend { display: flex; gap: 16px; font-size: .8rem; color: var(--muted); flex-wrap: wrap; }
+.dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; margin-right: 6px; vertical-align: middle; }
+.tbl { overflow-x: auto; }
+#coverage { grid-template-columns: minmax(0, 1fr); }
+.audit-list { max-height: 25rem; margin-top: 8px; }
+.audit-list th { position: sticky; top: 0; background: var(--panel); }
+summary { cursor: pointer; }
+#evtable { min-width: 0; }
+table { border-collapse: collapse; font-size: .84rem; width: 100%; }
+th, td { padding: 6px 10px; border-bottom: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+th { font-weight: 600; color: var(--muted); font-size: .76rem; text-transform: uppercase; letter-spacing: .05em; }
+td .ci { color: var(--muted); font-family: var(--mono); font-size: .76rem; }
+td .sub { display: block; color: var(--muted); font-size: .72rem; }
+td.na { color: var(--muted); font-size: .76rem; }
+tr.ours td:first-child { font-weight: 600; }
+.note { color: var(--muted); font-size: .8rem; margin-top: 10px; max-width: 90ch; }
+.method { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; counter-reset: s; }
+.method div { display: grid; gap: 4px; font-size: .86rem; }
+.method h3::before { counter-increment: s; content: counter(s) " · "; color: var(--brass); font-family: var(--mono); }
+.method p { color: var(--muted); }
+.failure-list { color: var(--muted); padding-left: 1.2rem; }
+.failure-list b { color: var(--ink); }
+#failure-img { width: 100%; height: auto; border-radius: 6px; margin-top: .5rem; }
+footer { color: var(--muted); font-size: .8rem; }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Cartridge-case head scans · NIST NBTRD · X3P topography</div>
+    <h1>Primer mask review</h1>
+    <p class="lede">Review the 3D masking evaluation and inspect selected cases in the interactive viewer.</p>
+    <div class="stats" id="stats"></div>
+  </header>
+
+  <section class="card" id="coverage" aria-labelledby="coverage-h" hidden>
+    <h2 id="coverage-h">3D evaluation by study</h2>
+    <p class="lede" id="coverage-note"></p>
+    <div class="tbl" tabindex="0" aria-label="Scan outcomes by study">
+      <table><thead><tr><th scope="col">Study</th><th scope="col">Evaluated</th><th scope="col">Masks returned</th><th scope="col">Masks flagged</th><th scope="col">No mask</th></tr></thead><tbody id="coverage-studies"></tbody></table>
+    </div>
+    <details>
+      <summary id="coverage-detail-label">View individual scan outcomes</summary>
+      <div class="tbl audit-list" tabindex="0" aria-label="Individual scan outcomes">
+        <table><thead><tr><th scope="col">Scan</th><th scope="col">Outcome</th><th scope="col">QC</th><th scope="col">Measured crater</th><th scope="col">Circle agreement</th><th scope="col">Review reasons</th></tr></thead><tbody id="coverage-scans"></tbody></table>
+      </div>
+    </details>
+  </section>
+
+  <div>
+    <h2 id="viewer-h">Interactive scan viewer</h2>
+    <p class="lede" id="viewer-note"></p>
+  </div>
+  <section class="bench" aria-labelledby="viewer-h">
+    <nav class="rail" id="rail" aria-label="Scans"></nav>
+    <div class="stage-wrap">
+      <div class="stage" id="stage"><div class="rot" id="rot"></div></div>
+      <div class="controls" id="controls"></div>
+    </div>
+    <aside class="card" id="info"></aside>
+  </section>
+
+  <section class="card" aria-labelledby="ev-h">
+    <div class="eyebrow">Downstream check</div>
+    <h2 id="ev-h">Do the masks help match cartridge cases?</h2>
+    <p class="lede"><span id="matching-scope"></span> Red represents pairs from the same pistol and grey represents pairs from different pistols. Every pair was aligned over rotation and shift and scored by peak masked cross-correlation of band-passed height (20–250 µm) for each of three region choices. All three are cut from the same 5 mm square crop centred on the detected primer: “full scan” is every measured pixel in that crop, “whole primer disc” is the detected primer circle, and “our breech-face mask” is label 1.</p>
+    <div class="legend"><span><i class="dot" style="background:var(--bad)"></i>same pistol</span><span><i class="dot" style="background:var(--muted)"></i>different pistols</span></div>
+    <div class="evidence" id="evidence"></div>
+    <div id="evtable"></div>
+  </section>
+
+  <section class="card" id="failures" aria-labelledby="f-h" hidden>
+    <div class="eyebrow">Known failure modes</div>
+    <h2 id="f-h">Where the masks go wrong</h2>
+    <p class="lede">The worst cases found in the 150-scan audit, grouped by cause. Before/after pairs show the commit-9bce6ec output next to the current one. The current pipeline routes every case shown here to review except the three fixed primer placements and the Weller false-shear case.</p>
+    <ul class="failure-list">
+      <li><b>Primer mislocalised</b> (fixed). On three E3 full heads the strongest edge circle sat on the headstamp. Candidates are now re-ranked by a primer-diameter prior, concentricity with the case head and a crater inside.</li>
+      <li><b>False polarity flip</b> (flagged, still wrong). Two E3 primers carry a tall flow-back plateau, which looked like a cast. They are no longer flipped and are flagged, but the crater on the plateau is not separated from the primer.</li>
+      <li><b>Unmeasured crater</b> (flagged). Confocal scans trimmed to the primer leave the steep crater as a data gap, so its outline and depth are uncertain.</li>
+      <li><b>Rectangular aperture</b> (improved, flagged). The Glock slot is now detected on 29 of 39 scans and replaces the circular aperture, so the breech face excludes it and the impression stays inside it. The remaining 10 keep the circular model, and every Glock scan is still flagged.</li>
+      <li><b>False aperture shear</b> (not flagged). When a shallow drag channel is not detected, its walls can pass as shear (Weller TW04-01).</li>
+    </ul>
+    <img id="failure-img" alt="Failure gallery: before and after masks for the worst cases">
+    <p class="note" id="failure-note"></p>
+  </section>
+
+  <section class="card" aria-labelledby="m-h">
+    <h2 id="m-h">How each mask is made</h2>
+    <div class="method">
+      <div><h3>Primer</h3><p>Signed circular Hough transform on height gradients within 1.5–3.0 mm radius, refined by 360 rays and a robust circle fit. Candidates are re-ranked by a 3.7–5.6 mm diameter prior, concentricity with the case head and a crater inside.</p></div>
+      <div><h3>Datum</h3><p>Robust plane on the primer face gives depth below the surface. Heights are flipped only when a central bump, stronger primer-edge evidence and a plausible flipped crater all agree.</p></div>
+      <div><h3>Firing-pin impression</h3><p>Hysteresis on depth, grown to 15 % of crater depth; unmeasured holes inside the primer count as crater.</p></div>
+      <div><h3>Aperture</h3><p>A rectangular slot when two long, straight, parallel steps flank the pin (Glock); otherwise the flow-back ring around the crater, whose outer fall-off on the radial median profile gives the hole radius.</p></div>
+      <div><h3>Drag</h3><p>Impression outside the fitted strike circle, kept only if it is elongated and points one way.</p></div>
+      <div><h3>Aperture shear</h3><p>Striations at the aperture edge that run along the drag axis (or radially without drag) and are rougher and more coherent than the breech face.</p></div>
+      <div><h3>Breech face</h3><p>Primer face minus the aperture zone, the rounded cup rim and missing data.</p></div>
+      <div><h3>Quality control</h3><p>A score from primer-edge support, data coverage, crater and aperture evidence, plus hard gates (breech face under 20 % or impression over 50 % of the primer face, implausible primer size, declined flip, unmeasured crater, non-circular impression), flags scans for an examiner with a reason code.</p></div>
+    </div>
+  </section>
+  <footer>Data from the NIST Ballistics Toolmark Research Database. Generated by scripts/build-report.ts.</footer>
+</div>
+
+<script>
+const DATA = /*__DATA__*/null;
+const LAYERS = [
+  ["breech_face_impression", "Breech face", "--bf"],
+  ["aperture_shear", "Aperture shear", "--as"],
+  ["firing_pin_shear", "Firing-pin shear", "--fs"],
+  ["firing_pin_impression", "Firing-pin impression", "--fi"],
+];
+const state = { i: 0, on: Object.fromEntries(LAYERS.map(l => [l[0], true])), arrow: true, opacity: 0.55, canonical: false };
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const fmt = (v, d = 2) => v == null || v === "" ? "–" : Number(v).toFixed(d);
+const calib = n => n.startsWith("40SW") ? ".40 S&W" : n.startsWith("9mm") ? "9 mm" : n.split("__")[0];
+const short = n => n.split("__").slice(1).join(" ").replace(/_TF$/, "").replace(/_A\d+\.\d+_/, " ");
+const masked = row => ["ok", "partial"].includes(row.status);
+const studyName = name => ({ PopStatGlock: "PopStat Glock", "CTS15-526": "CTS 15-526" }[name] || name);
+
+function stats() {
+  const cohort = DATA.audit || [], viewer = DATA.scans;
+  const items = [[viewer.length, "scans in viewer"]];
+  if (cohort.length) {
+    const done = cohort.filter(masked);
+    items.unshift([cohort.length, "distinct scans evaluated"], [done.length, "masks returned"],
+                  [done.filter(x => x.review).length, "masks flagged for review"]);
+  }
+  $("stats").innerHTML = items.map(([b, t]) => `<div class="stat"><b>${esc(b)}</b><span>${esc(t)}</span></div>`).join("");
+  $("viewer-note").textContent = viewer.length
+    ? `${viewer.length} selected scans are available to inspect here. Toggle the layers or rotate to the drag direction.`
+    : "Rebuild with X3P inputs to add scans to the viewer.";
+}
+
+function coverage() {
+  const rows = DATA.audit || [];
+  if (!rows.length) return;
+  $("coverage").hidden = false;
+  $("coverage-note").textContent =
+    `The audit counts ${rows.length} unique input scans after deduplicating files by SHA-256. Status and review flags describe processing outcomes. Independent examiner labels are needed to measure mask accuracy.`;
+  const studies = new Map();
+  for (const row of rows) {
+    if (!studies.has(row.study)) studies.set(row.study, []);
+    studies.get(row.study).push(row);
+  }
+  $("coverage-studies").innerHTML = Array.from(studies, ([study, scans]) => {
+    const done = scans.filter(masked);
+    return `<tr><th scope="row">${esc(studyName(study))}</th><td>${scans.length}</td><td>${done.length}</td><td>${done.filter(s => s.review).length}</td><td>${scans.length - done.length}</td></tr>`;
+  }).join("");
+  $("coverage-detail-label").textContent = `View all ${rows.length} scan outcomes`;
+  $("coverage-scans").innerHTML = rows.map(row => {
+    const outcome = masked(row) ? (row.review ? "Review flagged" : row.status === "partial" ? "Partial mask" : "Mask returned") : row.status;
+    const measured = row.coverage === "" ? "–" : `${Math.round(100 * Number(row.coverage))}%`;
+    return `<tr><td>${esc(row.name)}</td><td>${esc(outcome)}</td><td>${fmt(row.qc)}</td><td>${measured}</td><td>${fmt(row.circle)}</td><td>${esc((row.reasons || "").replaceAll(";", ", ")) || "–"}</td></tr>`;
+  }).join("");
+}
+
+function rail() {
+  $("rail").innerHTML = DATA.scans.map((s, i) => {
+    const cls = s.status === "skipped" ? "skip" : s.review ? "review" : "auto";
+    const lab = ["skipped", "failed"].includes(s.status) ? s.status : s.review ? "review" : "auto";
+    return `<button class="scan" data-i="${i}" aria-current="${i === state.i}"><span class="nm">${esc(short(s.name))}</span><span class="pill ${cls}">${lab}</span><span class="cal">${esc(calib(s.name))}</span></button>`;
+  }).join("");
+  $("rail").querySelectorAll(".scan").forEach(b => b.onclick = () => { state.i = +b.dataset.i; draw(); rail(); });
+}
+
+function controls() {
+  const t = LAYERS.map(([k, label, c]) => `<label class="toggle"><input type="checkbox" id="l-${k}" ${state.on[k] ? "checked" : ""}><span class="sw" style="background:var(${c})"></span>${label}</label>`).join("");
+  $("controls").innerHTML = t +
+    `<label class="toggle"><input type="checkbox" id="l-arrow" ${state.arrow ? "checked" : ""}><span class="sw" style="background:var(--arrow)"></span>Drag</label>` +
+    `<label class="toggle">Opacity <input type="range" id="opacity" min="0.15" max="1" step="0.05" value="${state.opacity}"></label>` +
+    `<button class="btn" id="canon" aria-pressed="${state.canonical}">Drag to 6 o'clock</button>`;
+  LAYERS.forEach(([k]) => $("l-" + k).onchange = e => { state.on[k] = e.target.checked; draw(); });
+  $("l-arrow").onchange = e => { state.arrow = e.target.checked; draw(); };
+  $("opacity").oninput = e => { state.opacity = +e.target.value; draw(); };
+  $("canon").onclick = () => { state.canonical = !state.canonical; $("canon").setAttribute("aria-pressed", state.canonical); draw(); };
+}
+
+function draw() {
+  const s = DATA.scans[state.i];
+  const rot = $("rot");
+  if (!s.base) {
+    rot.style.transform = "none";
+    rot.innerHTML = `<div class="empty">${esc(s.warnings.join(" · ") || "No image")}</div>`;
+  } else {
+    let h = `<img src="${s.base}" alt="Rendered topography of ${esc(s.name)}">`;
+    for (const [k] of LAYERS) if (state.on[k]) h += `<img src="${s.layers[k]}" alt="" style="opacity:${state.opacity}">`;
+    if (state.arrow && s.pin) {
+      const [px, py, pr] = s.pin;
+      let svg = `<circle cx="${px}" cy="${py}" r="${Math.max(5, pr * 0.25)}" fill="none" stroke="var(--arrow)" stroke-width="3"/>`;
+      if (s.tip) {
+        const [tx, ty] = s.tip, a = Math.atan2(ty - py, tx - px), L = 14;
+        svg += `<line x1="${px}" y1="${py}" x2="${tx}" y2="${ty}" stroke="var(--arrow)" stroke-width="3"/>` +
+          `<path d="M${tx},${ty} L${tx - L * Math.cos(a - 0.45)},${ty - L * Math.sin(a - 0.45)} L${tx - L * Math.cos(a + 0.45)},${ty - L * Math.sin(a + 0.45)} Z" fill="var(--arrow)"/>`;
+      }
+      h += `<svg viewBox="0 0 520 520" aria-hidden="true">${svg}</svg>`;
+    }
+    rot.innerHTML = h;
+    const ang = state.canonical && s.drag ? 90 - s.drag_angle : 0;
+    const [cx, cy] = s.centre;
+    rot.style.transformOrigin = `${cx / 5.2}% ${cy / 5.2}%`;
+    rot.style.transform = `rotate(${ang}deg)`;
+  }
+  info(s);
+}
+
+function info(s) {
+  const q = s.qc ?? 0;
+  const qcol = !s.base ? "var(--muted)" : s.review ? "var(--warn)" : "var(--ok)";
+  const rows = [
+    ["Primer Ø", fmt(s.primer_d) + " mm"], ["Firing pin Ø", fmt(s.pin_d) + " mm"], ["Crater depth", fmt(s.depth, 0) + " µm"],
+    ["Aperture Ø", fmt(s.aperture_d) + " mm" + (s.aperture_detected ? "" : " (default)")],
+    ["Drag", s.drag ? `${fmt(s.drag_len)} mm @ ${fmt(s.drag_angle, 0)}°` : "none"],
+    ["Breech-face area", fmt(s.areas?.breech_face_impression) + " mm²"],
+    ["Aperture-shear area", fmt(s.areas?.aperture_shear) + " mm²"],
+  ];
+  const fac = Object.entries(s.qc_factors || {}).map(([k, v]) => [k.replace(/_/g, " "), fmt(v)]);
+  const obs = Object.entries(s.qc_observations || {}).map(([k, v]) => [k.replace(/_/g, " "), fmt(v)]);
+  $("info").innerHTML = `<div class="eyebrow">${esc(calib(s.name))}</div><h3 style="overflow-wrap:anywhere">${esc(short(s.name))}</h3>
+    <div style="display:grid;gap:6px"><div style="display:flex;justify-content:space-between;font-size:.84rem"><span>QC confidence</span><b style="color:${qcol};font-family:var(--mono)">${!s.base ? esc(s.status) : fmt(q)}</b></div>
+    <div class="qcbar"><i style="width:${Math.round(q * 100)}%;background:${qcol}"></i></div></div>
+    <dl>${rows.map(([a, b]) => `<dt>${a}</dt><dd>${esc(b)}</dd>`).join("")}</dl>
+    ${fac.length ? `<details><summary style="cursor:pointer;font-size:.82rem;color:var(--muted)">QC factors</summary><dl style="margin-top:8px">${fac.map(([a, b]) => `<dt>${esc(a)}</dt><dd>${b}</dd>`).join("")}</dl></details>` : ""}
+    ${obs.length ? `<details><summary style="cursor:pointer;font-size:.82rem;color:var(--muted)">Review observations</summary><dl style="margin-top:8px">${obs.map(([a, b]) => `<dt>${esc(a)}</dt><dd>${b}</dd>`).join("")}</dl></details>` : ""}
+    ${s.warnings.length ? `<ul class="warn">${s.warnings.map(w => `<li>${esc(w)}</li>`).join("")}</ul>` : ""}`;
+}
+
+function evidence() {
+  const P = DATA.matching.pairs || [], S = DATA.matching.summary || {};
+  if (P.length) $("matching-scope").textContent =
+    `This separate experiment uses ${P.length} within-study pairs from ${new Set(P.flatMap(p => [p.a, p.b])).size} scans.`;
+  if (!P.length) { $("evidence").innerHTML = `<p class="lede">No matching run found. Run <code>python python/compare.py data/matching</code> first.</p>`; return; }
+  const kinds = [["breech_face", "Our breech-face mask"], ["primer_disc", "Whole primer disc"], ["full_scan", "No mask (full scan)"]];
+  const studies = [...new Set(P.map(p => p.study))];
+  const W = 560, rowH = 46, top = 30, left = 150, right = 20, H = top + kinds.length * rowH + 34;
+  const x = v => left + Math.max(0, Math.min(1, v)) * (W - left - right);
+  $("evidence").innerHTML = studies.map(st => {
+    const ps = P.filter(p => p.study === st);
+    let g = `<text class="ttl" x="0" y="16">${esc(st)} · ${ps.filter(p => +p.match).length} same-pistol, ${ps.filter(p => !+p.match).length} different-pistol pairs</text>`;
+    for (let t = 0; t <= 1.0001; t += 0.2) g += `<line x1="${x(t)}" x2="${x(t)}" y1="${top}" y2="${H - 30}" stroke="var(--line)"/><text x="${x(t)}" y="${H - 14}" text-anchor="middle">${t.toFixed(1)}</text>`;
+    kinds.forEach(([k, label], r) => {
+      const y = top + r * rowH + rowH / 2, v = S[st]?.[k] || {};
+      g += `<text x="0" y="${y - 4}" style="fill:var(--ink)">${label}</text><text x="0" y="${y + 11}">AUC ${fmt(v.auc)}${v.auc_ci95 ? ` [${fmt(v.auc_ci95[0])}, ${fmt(v.auc_ci95[1])}]` : ""}</text>`;
+      if (v.eer_threshold != null && v.eer_threshold >= 0 && v.eer_threshold <= 1)
+        g += `<line x1="${x(v.eer_threshold)}" x2="${x(v.eer_threshold)}" y1="${y - rowH / 2 + 4}" y2="${y + rowH / 2 - 4}" stroke="var(--ink)" stroke-dasharray="2 3" stroke-opacity="0.6"><title>EER threshold ${fmt(v.eer_threshold, 3)}</title></line>`;
+      ps.forEach((p, j) => {
+        const v = p["ccf_" + k]; if (v == null || v === "") return;
+        const m = +p.match, jy = y + (m ? -9 : 7) + ((j * 37) % 7) - 3;
+        g += `<circle cx="${x(v)}" cy="${jy}" r="${m ? 4.2 : 3.4}" fill="${m ? "var(--bad)" : "var(--muted)"}" fill-opacity="${m ? 0.95 : 0.55}"><title>${esc(short(p.a))} vs ${esc(short(p.b))}: ${fmt(v, 3)}</title></circle>`;
+      });
+    });
+    return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Correlation scores for ${esc(st)}">${g}</svg>`;
+  }).join("");
+  const ci = c => c ? `<span class="ci">[${fmt(c[0])}, ${fmt(c[1])}]</span>` : "";
+  const pct = v => v == null ? "–" : `${Math.round(v * 100)}%`;
+  const signed = v => v == null ? "–" : (v > 0 ? "+" : v < 0 ? "−" : "±") + Math.abs(v).toFixed(2);
+  const rows = studies.flatMap(st => kinds.map(([k, label]) => {
+    const v = S[st]?.[k] || {}, d = S[st]?.paired_auc_difference?.["breech_face_minus_" + k];
+    const diff = k === "breech_face" ? `<td class="na">reference</td>`
+      : d ? `<td>${signed(d.auc_diff)} ${ci(d.ci95)}<span class="sub">${d.frac_reps_eq_0 > 0.5 ? `tied in ${pct(d.frac_reps_eq_0)}` : `ours higher in ${pct(d.frac_reps_gt_0)}`}</span></td>` : `<td>–</td>`;
+    return `<tr${k === "breech_face" ? ' class="ours"' : ""}><td>${esc(st)} · ${label}</td><td>${fmt(v.auc)} ${ci(v.auc_ci95)}</td>${diff}<td>${fmt(v.eer)}<span class="sub">at ${fmt(v.eer_threshold)}</span></td><td>${fmt(v.d_prime, 1)}</td><td>${fmt(v.km_mean)}</td><td>${fmt(v.knm_mean)}</td><td>${fmt(v.gap_min_km_minus_max_knm)}</td></tr>`;
+  }));
+  const boot = studies.map(st => [st, S[st]?.bootstrap]).filter(([, b]) => b);
+  const iou = studies.map(st => S[st]?.breech_face_mask_iou_known_matches).filter(v => v != null);
+  $("evtable").innerHTML = `<div class="tbl"><table><thead><tr><th>Region</th><th>AUC [95% CI]</th><th>Our mask minus this</th><th>EER</th><th>d′</th><th>Same-pistol mean</th><th>Different mean</th><th>Worst-case gap</th></tr></thead><tbody>${rows.join("")}</tbody></table></div>` +
+    (boot.length ? `<p class="note">Intervals come from a firearm-level cluster bootstrap (${boot[0][1].reps} resamples): pairs share scans and pistols, so pistols are resampled within each study and all pairs among them rebuilt. “Our mask minus this” is the AUC difference, with its interval and the share of resamples in which our mask scored higher, from the same resamples. With ${boot.map(([st, b]) => `${b.firearms} pistols in ${esc(st)} (${b.possible_distinct_resamples} distinct resamples)`).join(" and ")}, these intervals are rough. When every pair is already separated, every resample gives AUC 1, so [1.00, 1.00] reflects the sample, not certainty. EER uses the sampled threshold that most closely balances false accepts and false rejects; the dashed line in each strip marks its threshold.</p>` : "") +
+    (iou.length ? `<p class="lede" style="margin-top:10px">Mask repeatability: after alignment, breech-face masks of the same pistol overlap with mean IoU ${studies.map(st => `${esc(st)} ${fmt(S[st]?.breech_face_mask_iou_known_matches)}`).join(", ")}.</p>` : "");
+}
+
+// open on a scan that shows every layer (drag + shear), else the first masked one
+const withDrag = DATA.scans.findIndex(s => s.drag && s.areas?.aperture_shear > 0);
+state.i = withDrag >= 0 ? withDrag : Math.max(0, DATA.scans.findIndex(s => s.status === "ok"));
+if (DATA.failures) {
+  $("failures").hidden = false;
+  $("failure-img").src = DATA.failures.image;
+  $("failure-note").textContent = DATA.failures.note;
+}
+stats();
+coverage();
+rail();
+if (DATA.scans.length) {
+  controls();
+  draw();
+} else {
+  $("rot").innerHTML = '<p class="empty">Rebuild with an X3P folder to inspect scan masks.</p>';
+}
+evidence();
+</script>
