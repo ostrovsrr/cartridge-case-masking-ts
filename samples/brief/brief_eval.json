@@ -1,0 +1,172 @@
+{
+  "note": "IoU of 2D-mode masks against the brief's own annotated figures. Reference regions are colour-thresholded from semi-transparent overlays.",
+  "page1_evofinder": {
+    "segmentation": {
+      "name": "brief_p1_before",
+      "status": "partial",
+      "warnings": [
+        "2D image mode: no height data - crater depth, flow-back ring and aperture cannot be measured",
+        "aperture shear is not attempted in 2D mode (left empty)",
+        "physical scale unknown: geometry in pixels and fractions of primer radius",
+        "no firing-pin impression found"
+      ],
+      "primer_edge_inlier_frac": 1.0,
+      "aperture_detected": false,
+      "drag_detected": false,
+      "drag_angle_deg": null,
+      "areas_mm2": {},
+      "qc_score": 0.21,
+      "needs_review": true,
+      "qc_factors": {
+        "two_d_only": 0.7,
+        "primer_edge": 1.0,
+        "firing_pin": 0.3
+      },
+      "qc_observations": {},
+      "review_reasons": [
+        "two_d_only"
+      ],
+      "aperture_shape": "circle",
+      "aperture_evidence": {},
+      "shear_evidence": {},
+      "work_scale": 1.0,
+      "input_shape": [
+        593,
+        603
+      ],
+      "px_um": null,
+      "primer_support": 1.0,
+      "fpi_source": "none",
+      "pin_circle_support": 0.4889,
+      "drag_length_px": null,
+      "geometry_input_px": {
+        "primer_center_px": [
+          256.7506,
+          254.1168
+        ],
+        "primer_radius_px": 274.5951
+      },
+      "areas_input_px": {
+        "breech_face_impression": 213095.0,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 0.0
+      },
+      "areas_frac_of_primer_disc": {
+        "breech_face_impression": 0.8996,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.0,
+        "firing_pin_impression": 0.0
+      },
+      "mode": "2d_image"
+    },
+    "registration": {
+      "method": "SIFT + RANSAC similarity",
+      "matches": 104,
+      "inliers": 32,
+      "scale": 0.639095233766441,
+      "rotation_deg": -163.78013124875554,
+      "tx": 433.304453709093,
+      "ty": 491.3840251611269
+    },
+    "iou": {
+      "breech_face (red)": 0.4198384706409476,
+      "firing_pin_region (cyan+purple vs ours FPI+drag)": 0.0,
+      "drag_channel (cyan vs ours firing-pin shear)": 0.0,
+      "aperture_shear (green; ours never labelled in 2D)": 0.0
+    },
+    "reference_area_px": {
+      "breech_face": 36544,
+      "aperture_shear": 1103,
+      "cyan": 2330,
+      "purple": 2013,
+      "firing_pin_region": 8823
+    },
+    "ours_area_px_in_reference_frame": {
+      "breech_face_impression": 87043,
+      "aperture_shear": 0,
+      "firing_pin_shear": 0,
+      "firing_pin_impression": 0
+    }
+  },
+  "page2_glock": {
+    "note": "The brief supplies only the annotated figure. A maximum-channel image is shown for qualitative review. The source includes the label overlays, so there is no independent IoU measurement for this figure.",
+    "segmentation": {
+      "name": "brief_p2_deoverlaid",
+      "status": "ok",
+      "warnings": [
+        "2D image mode: no height data - crater depth, flow-back ring and aperture cannot be measured",
+        "aperture shear is not attempted in 2D mode (left empty)",
+        "physical scale unknown: geometry in pixels and fractions of primer radius",
+        "primer edge supported on only 48% of rays",
+        "pin-strike circle not confirmed by a second Hough search",
+        "aperture taken as 1.5 x firing-pin radius (no height data)",
+        "drag tail labelled firing-pin shear from outline elongation only"
+      ],
+      "primer_edge_inlier_frac": 0.4833,
+      "aperture_detected": false,
+      "drag_detected": true,
+      "drag_angle_deg": 159.5479,
+      "areas_mm2": {},
+      "qc_score": 0.2053,
+      "needs_review": true,
+      "qc_factors": {
+        "two_d_only": 0.7,
+        "primer_edge": 0.367,
+        "firing_pin": 0.8
+      },
+      "qc_observations": {},
+      "review_reasons": [
+        "two_d_only"
+      ],
+      "aperture_shape": "circle",
+      "aperture_evidence": {},
+      "shear_evidence": {},
+      "work_scale": 0.9333,
+      "input_shape": [
+        735,
+        750
+      ],
+      "px_um": null,
+      "primer_support": 0.4833,
+      "fpi_source": "blob",
+      "pin_circle_support": 0.5222,
+      "drag_length_px": 35.7844,
+      "geometry_input_px": {
+        "primer_center_px": [
+          504.4414,
+          407.1083
+        ],
+        "primer_radius_px": 109.6981,
+        "fp_core_center_px": [
+          576.7859,
+          404.9707
+        ],
+        "fp_core_radius_px": 14.7905,
+        "fp_core_radius_frac": 0.1348,
+        "fp_offset_frac": 0.6598,
+        "aperture_radius_px": 22.1857,
+        "aperture_radius_frac": 0.2022,
+        "drag_tip_px": [
+          540.8623,
+          418.3678
+        ],
+        "drag_length_px": 38.3405,
+        "drag_length_frac": 0.3495
+      },
+      "areas_input_px": {
+        "breech_face_impression": 32262.2449,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 190.5612,
+        "firing_pin_impression": 784.0561
+      },
+      "areas_frac_of_primer_disc": {
+        "breech_face_impression": 0.8534,
+        "aperture_shear": 0.0,
+        "firing_pin_shear": 0.005,
+        "firing_pin_impression": 0.0207
+      },
+      "mode": "2d_image"
+    }
+  }
+}

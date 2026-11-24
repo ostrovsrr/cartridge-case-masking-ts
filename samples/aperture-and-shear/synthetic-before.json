@@ -1,0 +1,142 @@
+[
+ {
+  "case": "round, drag",
+  "shear_px": 4803,
+  "shear_recall": null,
+  "shear_precision": null,
+  "breech_face_in_slot": null,
+  "aperture_shape": "circle",
+  "aperture_detected": true,
+  "aperture_radius_error": -0.098
+ },
+ {
+  "case": "round, no drag",
+  "shear_px": 4845,
+  "shear_recall": null,
+  "shear_precision": null,
+  "breech_face_in_slot": null,
+  "aperture_shape": "circle",
+  "aperture_detected": true,
+  "aperture_radius_error": -0.098
+ },
+ {
+  "case": "striated shear, drag",
+  "shear_px": 13392,
+  "shear_recall": 0.991,
+  "shear_precision": 0.676,
+  "breech_face_in_slot": null,
+  "aperture_shape": "circle",
+  "aperture_detected": true,
+  "aperture_radius_error": -0.098
+ },
+ {
+  "case": "weak striated shear, drag",
+  "shear_px": 12883,
+  "shear_recall": 0.975,
+  "shear_precision": 0.692,
+  "breech_face_in_slot": null,
+  "aperture_shape": "circle",
+  "aperture_detected": true,
+  "aperture_radius_error": -0.098
+ },
+ {
+  "case": "striated shear, no drag",
+  "shear_px": 13274,
+  "shear_recall": 0.986,
+  "shear_precision": 0.678,
+  "breech_face_in_slot": null,
+  "aperture_shape": "circle",
+  "aperture_detected": true,
+  "aperture_radius_error": -0.098
+ },
+ {
+  "case": "isotropic rough band, drag",
+  "shear_px": 13488,
+  "shear_recall": 0.991,
+  "shear_precision": 0.671,
+  "breech_face_in_slot": null,
+  "aperture_shape": "circle",
+  "aperture_detected": true,
+  "aperture_radius_error": -0.098
+ },
+ {
+  "case": "isotropic rough band, no drag",
+  "shear_px": 13350,
+  "shear_recall": 0.986,
+  "shear_precision": 0.674,
+  "breech_face_in_slot": null,
+  "aperture_shape": "circle",
+  "aperture_detected": true,
+  "aperture_radius_error": -0.098
+ },
+ {
+  "case": "slot 0 deg, drag",
+  "shear_px": 6308,
+  "shear_recall": null,
+  "shear_precision": null,
+  "breech_face_in_slot": 0.488,
+  "aperture_shape": "circle",
+  "aperture_detected": true,
+  "aperture_radius_error": null
+ },
+ {
+  "case": "slot 0 deg, no drag",
+  "shear_px": 6944,
+  "shear_recall": null,
+  "shear_precision": null,
+  "breech_face_in_slot": 0.43,
+  "aperture_shape": "circle",
+  "aperture_detected": true,
+  "aperture_radius_error": null
+ },
+ {
+  "case": "slot 45 deg, drag",
+  "shear_px": 6576,
+  "shear_recall": null,
+  "shear_precision": null,
+  "breech_face_in_slot": 0.491,
+  "aperture_shape": "circle",
+  "aperture_detected": true,
+  "aperture_radius_error": null
+ },
+ {
+  "case": "edge step only",
+  "shear_px": 5707,
+  "shear_recall": null,
+  "shear_precision": null,
+  "breech_face_in_slot": null,
+  "aperture_shape": "circle",
+  "aperture_detected": false,
+  "aperture_radius_error": -0.109
+ },
+ {
+  "case": "edge step only, aperture_edge=True",
+  "shear_px": 5707,
+  "shear_recall": null,
+  "shear_precision": null,
+  "breech_face_in_slot": null,
+  "aperture_shape": "circle",
+  "aperture_detected": false,
+  "aperture_radius_error": -0.109
+ },
+ {
+  "case": "no ring, no step",
+  "shear_px": 3755,
+  "shear_recall": null,
+  "shear_precision": null,
+  "breech_face_in_slot": null,
+  "aperture_shape": "circle",
+  "aperture_detected": false,
+  "aperture_radius_error": -0.104
+ },
+ {
+  "case": "no ring, no step, aperture_edge=True",
+  "shear_px": 3755,
+  "shear_recall": null,
+  "shear_precision": null,
+  "breech_face_in_slot": null,
+  "aperture_shape": "circle",
+  "aperture_detected": false,
+  "aperture_radius_error": -0.104
+ }
+]

@@ -1,0 +1,62 @@
+{
+  "E3": {
+    "known_match_pairs": 9,
+    "known_non_match_pairs": 27,
+    "breech_face": {
+      "auc": 0.967,
+      "km_mean": 0.494,
+      "knm_mean": 0.339,
+      "gap_min_km_minus_max_knm": -0.029,
+      "auc_ci95": [
+        0.951,
+        1.0
+      ],
+      "eer": 0.111,
+      "eer_threshold": 0.39,
+      "cohens_d": 2.84,
+      "d_prime": 2.33
+    },
+    "paired_auc_difference": {},
+    "bootstrap": {
+      "method": "firearm-level cluster bootstrap within study; percentile 95% CI",
+      "firearms": 3,
+      "scans": 9,
+      "reps": 2000,
+      "valid_reps": 1801,
+      "seed": 0,
+      "possible_distinct_resamples": 7,
+      "note": "reps drawing a single distinct firearm have no different-gun pairs and are dropped"
+    },
+    "breech_face_mask_iou_known_matches": 0.866
+  },
+  "Fadul": {
+    "known_match_pairs": 5,
+    "known_non_match_pairs": 40,
+    "breech_face": {
+      "auc": 1.0,
+      "km_mean": 0.885,
+      "knm_mean": 0.41,
+      "gap_min_km_minus_max_knm": 0.144,
+      "auc_ci95": [
+        1.0,
+        1.0
+      ],
+      "eer": 0.0,
+      "eer_threshold": 0.778,
+      "cohens_d": 4.28,
+      "d_prime": 5.63
+    },
+    "paired_auc_difference": {},
+    "bootstrap": {
+      "method": "firearm-level cluster bootstrap within study; percentile 95% CI",
+      "firearms": 5,
+      "scans": 10,
+      "reps": 2000,
+      "valid_reps": 1997,
+      "seed": 0,
+      "possible_distinct_resamples": 121,
+      "note": "reps drawing a single distinct firearm have no different-gun pairs and are dropped"
+    },
+    "breech_face_mask_iou_known_matches": 0.82
+  }
+}

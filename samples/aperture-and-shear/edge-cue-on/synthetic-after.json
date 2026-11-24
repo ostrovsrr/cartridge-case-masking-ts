@@ -1,0 +1,122 @@
+[
+ {
+  "case": "round, drag",
+  "shear_px": 0,
+  "shear_recall": null,
+  "shear_precision": null,
+  "breech_face_in_slot": null,
+  "aperture_shape": "circle",
+  "aperture_detected": true,
+  "aperture_radius_error": -0.098
+ },
+ {
+  "case": "round, no drag",
+  "shear_px": 0,
+  "shear_recall": null,
+  "shear_precision": null,
+  "breech_face_in_slot": null,
+  "aperture_shape": "circle",
+  "aperture_detected": true,
+  "aperture_radius_error": -0.098
+ },
+ {
+  "case": "striated shear, drag",
+  "shear_px": 12067,
+  "shear_recall": 0.963,
+  "shear_precision": 0.729,
+  "breech_face_in_slot": null,
+  "aperture_shape": "circle",
+  "aperture_detected": true,
+  "aperture_radius_error": -0.098
+ },
+ {
+  "case": "weak striated shear, drag",
+  "shear_px": 10664,
+  "shear_recall": 0.845,
+  "shear_precision": 0.724,
+  "breech_face_in_slot": null,
+  "aperture_shape": "circle",
+  "aperture_detected": true,
+  "aperture_radius_error": -0.098
+ },
+ {
+  "case": "striated shear, no drag",
+  "shear_px": 8228,
+  "shear_recall": 0.858,
+  "shear_precision": 0.952,
+  "breech_face_in_slot": null,
+  "aperture_shape": "circle",
+  "aperture_detected": true,
+  "aperture_radius_error": -0.098
+ },
+ {
+  "case": "isotropic rough band, drag",
+  "shear_px": 0,
+  "shear_recall": 0.0,
+  "shear_precision": null,
+  "breech_face_in_slot": null,
+  "aperture_shape": "circle",
+  "aperture_detected": true,
+  "aperture_radius_error": -0.098
+ },
+ {
+  "case": "isotropic rough band, no drag",
+  "shear_px": 0,
+  "shear_recall": 0.0,
+  "shear_precision": null,
+  "breech_face_in_slot": null,
+  "aperture_shape": "circle",
+  "aperture_detected": true,
+  "aperture_radius_error": -0.098
+ },
+ {
+  "case": "slot 0 deg, drag",
+  "shear_px": 0,
+  "shear_recall": null,
+  "shear_precision": null,
+  "breech_face_in_slot": 0.0,
+  "aperture_shape": "rectangle",
+  "aperture_detected": true,
+  "aperture_radius_error": null
+ },
+ {
+  "case": "slot 0 deg, no drag",
+  "shear_px": 0,
+  "shear_recall": null,
+  "shear_precision": null,
+  "breech_face_in_slot": 0.0,
+  "aperture_shape": "rectangle",
+  "aperture_detected": true,
+  "aperture_radius_error": null
+ },
+ {
+  "case": "slot 45 deg, drag",
+  "shear_px": 0,
+  "shear_recall": null,
+  "shear_precision": null,
+  "breech_face_in_slot": 0.0,
+  "aperture_shape": "rectangle",
+  "aperture_detected": true,
+  "aperture_radius_error": null
+ },
+ {
+  "case": "edge step only",
+  "shear_px": 0,
+  "shear_recall": null,
+  "shear_precision": null,
+  "breech_face_in_slot": null,
+  "aperture_shape": "circle",
+  "aperture_detected": true,
+  "aperture_radius_error": 0.001
+ },
+ {
+  "case": "no ring, no step",
+  "shear_px": 0,
+  "shear_recall": null,
+  "shear_precision": null,
+  "breech_face_in_slot": null,
+  "aperture_shape": "circle",
+  "aperture_detected": false,
+  "aperture_radius_error": -0.104
+ }
+]
